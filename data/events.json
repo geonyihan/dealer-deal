@@ -14,6 +14,8 @@
       "summary": "삼성닷컴 로그인 후 이벤트 페이지에서 '응모하기'만 누르면 끝. 제품 구매 조건 없음. 날짜마다 경품이 달라서 매일 다시 응모할 수 있음.",
       "conditions": "만 14세 이상 대한민국 국민 / 삼성닷컴 회원 + 광고성 정보 수신 동의 필수 / 1인 1일 1회, 중복 당첨 불가 / 당첨은 응모 다음 날 오후 3시 삼성닷컴 공지 / 경품 가액의 22% 제세공과금 본인 부담 / 경품 배송은 12월 15일부터 순차",
       "url": "https://www.samsung.com/sec/event/lions-victory-faq/",
+      "image": "./images/samsung-lions-v9.jpg",
+      "icon": "./images/brands/samsung.com.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -27,6 +29,8 @@
       "summary": "공단 사업 관련 불편·규제를 개선할 아이디어를 서술형으로 적어 구글폼으로 제출. 별도 서류 없음. 아이디어 한 편만 내도 추첨 참가상 2만원 응모가 됨.",
       "conditions": "대한민국 국민 누구나(개인) / 공단 홈페이지 구글폼 제출 / 심사 적합성 40·창의성 30·효과성 30 / 결과 12월 중 개별 연락 / 참가상 20명 추첨은 이벤트 안내 기준",
       "url": "https://www.kspo.or.kr/contest",
+      "image": "./images/kspo-regul-idea.jpg",
+      "icon": "./images/brands/kspo.or.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -40,6 +44,8 @@
       "summary": "구석구석 로그인 후 남원 명소 중 마음에 드는 곳 '찜'하고, OX 퀴즈 정답 제출하면 참여 완료. 개인정보 입력은 경품 발송용.",
       "conditions": "구석구석 로그인 필요 / 개인정보 수집·제3자 제공 동의 / 연락처 기준 중복 제거, 1인 1경품 / 당첨자 발표 12월 7일",
       "url": "https://korean.visitkorea.or.kr/detail/event_detail.do?cotid=380a9fd1-4dc9-4de1-891a-9f539e546375",
+      "image": "./images/namwon-ox-quiz.jpg",
+      "icon": "./images/brands/korean.visitkorea.or.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -53,6 +59,8 @@
       "summary": "양천구 정책 퀴즈 정답을 제출하면 추첨 응모 완료. 회차마다 30명에게 5천원 상당 경품. 매월 2회 새 퀴즈가 열려 12월 회차도 이어짐.",
       "conditions": "양천구 홈페이지 퀴즈 페이지에서 참여 / 11월 2회차 11.11~11.25, 발표 11.27 / 정답자 대상 추첨 30명",
       "url": "https://cms.yangcheon.go.kr/site/yangcheon/02/10201050100002026080708.jsp",
+      "image": "./images/yangcheon-policy-quiz.jpg",
+      "icon": "./images/brands/yangcheon.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -65,6 +73,8 @@
       "summary": "휴대폰 번호로 사전 예약하면 누적 목표(10만~100만) 단계별 추첨에 자동 참여. 스토어 예약 시 탈것, 공식 라운지 가입 시 코스튬은 확정 지급.",
       "conditions": "게임 출시 전일 23:59까지 / 실물 경품은 출시 후 30영업일 내 당첨자 공지·개별 안내 / 인게임 보상은 서버 오픈 후 30일 내 접속해 수령",
       "url": "https://twelve.hantogames.com/",
+      "image": "./images/twelve-prereg.jpg",
+      "icon": "./images/brands/hantogames.com.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -78,6 +88,8 @@
       "summary": "프로그램북에서 함께 보고 싶은 공연 1개를 고르고, 같이 볼 사람과 그 이유를 네이버 폼에 적으면 끝. 공연 관람권이 아니라 상품권 이벤트라 티켓 없이 참여 가능.",
       "conditions": "1인 1회 / 세 문항 모두 필수 / 사연은 익명 처리 후 홍보 콘텐츠로 활용될 수 있음 / 당첨자는 종료 후 개별 안내",
       "url": "https://form.naver.com/response/IctXBrn0VsR",
+      "image": "./images/gyeongnam-concert-mate.jpg",
+      "icon": "./images/brands/gcntf.or.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -91,6 +103,8 @@
       "summary": "웹진 『행복한 교육』 만족도 설문 5~6분. 마지막에 경품을 원하면 휴대폰 번호만 입력하면 응모 완료. 번호를 넣지 않아도 설문은 정상 접수됨.",
       "conditions": "만 14세 이상 / 『행복한 교육』 구독 경험자 대상 설문 / 휴대폰 번호 입력은 선택 / 당첨자 발표 12월 중 개별 문자 / 경품 구성은 이벤트 안내 기준(설문 폼에는 '소정의 상품권'으로 표기)",
       "url": "https://forms.gle/JuoDB7zdQKP95nFB7",
+      "image": "./images/edu-happy-education-survey.jpg",
+      "icon": "./images/brands/moe.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -104,6 +118,8 @@
       "summary": "내 리추얼을 사진이나 영상으로 인스타그램에 올리면 기프트카드+리추얼 키트 추첨. 유튜브 채널 영상에 리추얼을 댓글로 남겨도 기프트카드 추첨 대상.",
       "conditions": "인스타그램 게시물 또는 유튜브 댓글 / 구체적 경품 금액·당첨 인원은 공식 공지에 없음 / 11월 10일~25일",
       "url": "https://www.ikea.com/kr/ko/newsroom/corporate-news/everydayritual-pub79eb37e0/",
+      "image": "./images/ikea-own-ritual.jpg",
+      "icon": "./images/brands/ikea.com.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -117,6 +133,8 @@
       "summary": "MY S-OIL 앱에서 회사 역사·비전 퀴즈를 풀면 5,000원 주유쿠폰. 기간 중 1인 1회, 매일 선착순 4,000명. 누적 10만원 이상 주유하면 갤럭시 폴드8 등 추가 응모 기회가 열림.",
       "conditions": "S-OIL 보너스카드(MY S-OIL) 회원 / 퀴즈 1인 1회, 당일 선착순 4,000명 소진 시 마감 / 누적주유 응모는 기간 중 10만원 이상 주유+적립 필요 / 당첨자 발표 2027년 1월 7일 카카오 알림톡",
       "url": "https://www.s-oil.com/relation/NewsView.aspx?BoardDataIndex=15630",
+      "image": "./images/sooil-50th-quiz.jpg",
+      "icon": "./images/brands/s-oil.com.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -130,6 +148,8 @@
       "summary": "@kujihako 팔로우 + 이벤트 게시물 좋아요·댓글, 무료 회원가입 후 이벤트 페이지에서 '참여하기' 누르면 끝. 11/29 22시 구슬 경주로 추첨하고 장면은 누구나 볼 수 있음.",
       "conditions": "무료 회원가입 필요 / 1인 1회 / 당첨 시 12월 6일까지 인스타 DM으로 닉네임 회신 / 경품은 마이페이지 > 배송관리에서 신청, 배송비 무료",
       "url": "https://kujihako.com/events/b13a5470-4f6e-45dc-a4d7-1da45e68b9d5",
+      "image": "./images/kujihako-insta-s2.jpg",
+      "icon": "./images/brands/kujihako.com.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -143,6 +163,8 @@
       "summary": "휴대폰 번호로 사전예약하면 보상 4종이 확정 지급되고 교촌 허니콤보 추첨에 자동 응모. 출시 전까지 누적 인원 목표가 달성될 때마다 기기 추첨이 추가됨.",
       "conditions": "만 19세 이상 / 휴대폰 번호 1개당 1회 / 보상 쿠폰은 출시 후 등록 번호로 문자 발송 / 출시일은 별도 공지",
       "url": "https://www.darkedenr.co.kr/",
+      "image": "./images/darkedenr-prereg.jpg",
+      "icon": "./images/brands/darkedenr.co.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -156,6 +178,8 @@
       "summary": "경기관광 AI 챗봇 '하이GT' 설명 중 틀린 것 하나를 고르는 3지선다. 정답 제출하면 추첨 응모 끝. 힌트까지 페이지에 다 적혀 있음.",
       "conditions": "1인 1회, 중복 당첨 불가 / 이름·휴대폰 번호 정확히 입력 / 당첨자 발표 11월 25일 / 경품 양도·재판매 불가",
       "url": "https://ggtour.or.kr/information/event/77daa1ec-fe34-4fbb-965a-479d817683ee?tab=event",
+      "image": "./images/ggtour-higt-quiz.jpg",
+      "icon": "./images/brands/ggtour.or.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -169,6 +193,8 @@
       "summary": "유튜브 채널 구독 후 우수기업 인터뷰 1·2편을 모두 보고 각 영상에 응원 댓글. 구글폼으로 구독·댓글을 인증하면 응모 완료.",
       "conditions": "두 영상 모두 필수 / 구글폼 인증(구글 로그인 필요) / 1인 1회, 중복 당첨 불가 / 당첨자 발표 11월 25일",
       "url": "https://forms.gle/cik6fFZic5rA3EdZ8",
+      "image": "./images/innopolis-relay2.jpg",
+      "icon": "./images/brands/innopolis.or.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -182,6 +208,8 @@
       "summary": "기후부 인스타 프로필 링크로 굳티튜드 숲에 접속 → 인상 깊은 곳을 캡처 → 인스타에 캡처와 소감을 남기고 → 구글폼 제출. 5분이면 끝.",
       "conditions": "기후부 인스타그램 팔로우 + 게시물 참여 / 구글폼 제출(구글 로그인 필요) / 당첨자 발표 11월 26일",
       "url": "https://forms.gle/XuMQmssEHydDzhDKA",
+      "image": "./images/climate-goodtitude-forest.jpg",
+      "icon": "./images/brands/me.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -195,6 +223,8 @@
       "summary": "탄소중립포인트 누리집이나 카본페이 앱에서 기후시민증을 발급 → 캡처 → 굳티튜드 스티커로 꾸미기 → #굳티튜드 #기후행동 해시태그로 인스타에 업로드 → 구글폼 제출.",
       "conditions": "기후시민증 발급 필요(무료) / 인스타 업로드 필수 / 구글폼 제출(구글 로그인 필요) / 취지와 무관한 표현은 참여 제한 / 당첨자 발표 12월 7일",
       "url": "https://forms.gle/B1sv8LKwGxuyVqFb6",
+      "image": "./images/climate-citizen-card.jpg",
+      "icon": "./images/brands/me.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -208,6 +238,8 @@
       "summary": "한국관광 100선 선정지에 가서 '100선 현판'이나 '스탬프 거치대'를 배경으로 애착템과 인증샷. 구글폼에 사진과 소개를 올리면 응모 완료되고, 방문지마다 따로 응모됨.",
       "conditions": "현장 방문 필수 / 인증샷에 현판·거치대가 배경으로 찍혀야 인정 / 많이 방문할수록 상위 경품 추첨 / 당첨자 발표 12월 7일",
       "url": "https://korean.visitkorea.or.kr/detail/event_detail.do?cotid=193afdb0-d6ab-4b71-8401-d01d76053833",
+      "image": "./images/kto-tour100-stamp.jpg",
+      "icon": "./images/brands/korean.visitkorea.or.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -221,6 +253,8 @@
       "summary": "우리 집 반려견의 '킁킁' 탐지 영상을 챌린지 방법대로 찍어 업로드. 영상 링크와 개인정보를 구글폼에 제출하면 참여 완료.",
       "conditions": "반려견 영상 촬영 필요 / 구글폼 제출(참여 조건·유의사항은 폼 안내) / 11월 23일 23시 59분까지 / 경품 구성은 관세청 이벤트 안내 기준",
       "url": "https://onoffmix.com/event/353197",
+      "image": "./images/customs-sniff-challenge.jpg",
+      "icon": "./images/brands/custom.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -234,6 +268,8 @@
       "summary": "재단 홈페이지에서 본인인증 로그인 후 이벤트 페이지 설문에 답하면 응모 완료. 200명 추첨이라 커피 이벤트 중 당첨 인원이 많은 편.",
       "conditions": "재단 홈페이지 본인인증 로그인 필요 / 10.26~11.24 / 당첨자 발표 12월 3일 예정 / 중복 전화번호·다중 응모는 당첨 제외 / 경품 발송용 개인정보는 당첨자에 한해 당첨 후 별도 수집",
       "url": "https://kocef.org/html/board_view.html?b_idx=MzE1MyAg&cate=mbb_notice_expo&gubun=0",
+      "image": "./images/kocef-homepage-survey.jpg",
+      "icon": "./images/brands/kocef.org.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -247,6 +283,8 @@
       "summary": "W브릿지에 처음 가입하고 구글폼 설문만 제출하면 응모 완료. 30초면 끝나고 600명을 뽑아 확률이 높음.",
       "conditions": "11/16~11/30 기간 내 생애 첫 신규 가입자만 / 기존 회원·이전 이벤트 참여자는 대상 제외 / 회원가입 후 구글폼 제출까지 마쳐야 인정 / 당첨자 발표 12월 4일 개별 DM",
       "url": "https://www.wbridge.or.kr/platform/gnrl/notice/selectNoticeView.do?div_code=11&ntt_sn=101102",
+      "image": "./images/wbridge-rejoin-coffee.jpg",
+      "icon": "./images/brands/wbridge.or.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -260,6 +298,8 @@
       "summary": "라이브서울 누리집 영상·디자인 관련 객관식 몇 문항에 답하고 번호만 남기면 끝. 서울 시민이 아니어도 참여됨.",
       "conditions": "라이브서울 이용자 및 시민 누구나 / 11.9 09:00~11.22 23:50 / 설문은 네이버폼(naver.me/xxonvx3v) / 당첨자 발표 11.26 라이브서울 누리집",
       "url": "https://mediahub.seoul.go.kr/missions/2000319",
+      "image": "./images/seoul-liveseoul-survey.jpg",
+      "icon": "./images/brands/mediahub.seoul.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -273,6 +313,8 @@
       "summary": "일상에서 만나는 공공디자인에 대한 인식 설문. 5분 안쪽이고 참여자 300명을 추첨해 메가커피 아메리카노를 줌.",
       "conditions": "1인 1회(중복 제출은 1회만 인정) / 10.22~11.22 / 당첨자 발표 11.30 개별 안내 / 연락처 오기재 시 경품 미수령",
       "url": "https://www.publicdesign.kr/brd/board/767/L/menu/1157?bbIdx=1343&brdType=R&searchField=pro&searchText=&thisPage=1",
+      "image": "./images/publicdesign-awareness-survey.jpg",
+      "icon": "./images/brands/publicdesign.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -286,6 +328,8 @@
       "summary": "청년 정책 정보 채널 '정보퐁퐁' 만족도 설문. 2분이면 끝나고 700명을 뽑아 커피 이벤트 중 당첨 확률이 가장 높은 축.",
       "conditions": "만 19~39세 청년 누구나 / 네이버폼 설문 작성·제출 / 11.2~11.30 24:00 / 쿠폰은 12.7 개별 발송",
       "url": "https://www.smyc.kr/program/?bmode=view&idx=175384307",
+      "image": "./images/smyc-infofountain-survey.jpg",
+      "icon": "./images/brands/smyc.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -299,6 +343,8 @@
       "summary": "서울시 온라인 뉴스룸 '내 손안에 서울' 이용 만족도 설문. 자기기입식 온라인 설문 한 번이면 응모 끝.",
       "conditions": "이용자·시민 누구나 / 중복 참여 불가(최초 응답만 반영) / 11.6~11.19 / 당첨자 발표 11.30 이벤트 페이지 / 개별 연락 없이 입력한 휴대폰 번호로 발송",
       "url": "https://mediahub.seoul.go.kr/missions/2000318",
+      "image": "./images/naesonanseoul-survey.jpg",
+      "icon": "./images/brands/mediahub.seoul.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -312,6 +358,8 @@
       "summary": "지진해일 행동요령이 맞는지 OX 하나 고르고 구글폼으로 제출하면 응모 완료. 정답은 이벤트 페이지 안내문에 그대로 있음.",
       "conditions": "11.16~11.27 / 구글폼 제출 / 당첨자 발표 12.4 누리집 공지 / 부정 당첨자 적발 시 예비 당첨자 추가 선발",
       "url": "https://www.xn--le5b23c9wbqa.com/communication/event.php?code=event02&idx=5364&page=1&ptype=view",
+      "image": "./images/earthquake-safety-quiz-nov.jpg",
+      "icon": "./images/brands/xn--le5b23c9wbqa.com.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -325,6 +373,8 @@
       "summary": "소통24 로그인 후 공공 마이데이터 이용 만족도 설문에 답하면 응모. 300명을 뽑아 인원이 넉넉한 편.",
       "conditions": "소통24 누리집 접속·로그인 필요 / 11.13~11.20 / 당첨자 발표 11.25 개별 통보 / 주관 행정안전부 행정정보공유과",
       "url": "https://modu.go.kr/front/qustnrNew/qustnrNewFrontView.do?date_range=&menu_id=421&miv_pageNo=&orderBy=&qustnr_bgnde=&qustnr_endde=&qustnr_id=9c2277bfa2ec4cc5a772077e4eb99fd2&searchQustnrSttusCode=&search_code=&search_orgNm=",
+      "image": "./images/modu-mydata-survey.jpg",
+      "icon": "./images/brands/modu.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -338,6 +388,8 @@
       "summary": "원북원부산 사업 모니터링 설문. 독서 프로그램 참여 여부 등 짧은 문항이고, 부산 시민이 아니어도 설문은 열려 있음.",
       "conditions": "공식 안내상 대상은 학생·학부모·부산시민 / 11.2~11.30 / 구글폼 제출, 개인정보 수집·이용 동의 필요 / 미당첨자 정보는 당첨자 선정 후 즉시 파기",
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSczpKJ9EhjVW2efwP5uh3o1APq1UkIaN2yHKpiH-E_C5bl6UA/viewform",
+      "image": "./images/busan-onebook-survey.jpg",
+      "icon": "./images/brands/busan.go.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -351,6 +403,8 @@
       "summary": "소식지 165호를 보고 세 이벤트 중 하나만 참여해도 응모됨. '의회 숨은 공간 찾기' 퀴즈와 '독자 만족도 조사'는 1분이면 끝.",
       "conditions": "~11.30 / 응모 내용이 「인천의정소식」에 실린 시민에게 기프티콘 증정 / 경품 금액은 공지에 미표기 / 이벤트별 당첨 인원 사진 8·퀴즈 6·만족도 6명",
       "url": "https://www.incheon.go.kr/IC010101/view?curPage=7&nttNo=2046285",
+      "image": "./images/incheon-council-newsletter.jpg",
+      "icon": "./images/brands/council.incheon.kr.png",
       "verified_at": "2026-11-18"
     },
     {
@@ -364,6 +418,8 @@
       "summary": "국토안전관리원 가치체계 공유도 설문. 대국민 누구나 참여하고 200명 추첨으로 5천원 상당 커피쿠폰을 줌.",
       "conditions": "대국민·이해관계자 대상 / 11.9~11.27 / 구글폼 설문 제출 또는 포스터 QR 접속 / 주관 건설안전관리실",
       "url": "https://www.csi.go.kr/por/noticeViewPop.do?system_cd=COM&bbs_id=noti&bbt_no=149524",
+      "image": "./images/kalis-value-survey.jpg",
+      "icon": "./images/brands/csi.go.kr.png",
       "verified_at": "2026-11-18"
     }
   ]
