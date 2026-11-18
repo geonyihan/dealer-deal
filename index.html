@@ -113,23 +113,23 @@
   }
   .search input::placeholder { color: var(--dim); }
   .chiprow {
-    display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 5px;
     margin-top: 10px;
   }
   .chiprow::-webkit-scrollbar { display: none; }
+  .sortgroup { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; }
   @media (max-width: 600px) {
     .chiprow { row-gap: 7px; }
-    .chip-sep { display: none; }
     .chip { font-size: 12px; padding: 4px 10px; }
   }
   .chip {
     flex: none;
-    font: inherit; font-size: 12.5px;
+    font: inherit; font-size: 12px;
     color: var(--dim);
     background: transparent;
     border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 4px 11px;
+    padding: 4px 10px;
     cursor: pointer;
     white-space: nowrap;
     letter-spacing: -.01em;
@@ -355,9 +355,10 @@
       <button class="chip" type="button" data-cat="official" aria-pressed="false">공식몰·폼</button>
       <button class="chip" type="button" data-cat="prereg" aria-pressed="false">사전예약</button>
       <button class="chip" type="button" id="hideDone" aria-pressed="false">완료 숨기기</button>
-      <span class="chip-sep" aria-hidden="true"></span>
-      <button class="chip sort" type="button" data-sort="deadline" aria-pressed="true">마감임박순</button>
-      <button class="chip sort" type="button" data-sort="new" aria-pressed="false">최신순</button>
+      <span class="sortgroup">
+        <button class="chip sort" type="button" data-sort="deadline" aria-pressed="true">마감임박순</button>
+        <button class="chip sort" type="button" data-sort="new" aria-pressed="false">최신순</button>
+      </span>
     </div>
   </div>
 </div>
