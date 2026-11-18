@@ -118,6 +118,7 @@
   }
   .chiprow::-webkit-scrollbar { display: none; }
   .sortgroup { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; }
+  .sortlabel { font-size: 11px; color: var(--dim); letter-spacing: -.01em; }
   @media (max-width: 600px) {
     .chiprow { row-gap: 7px; }
     .chip { font-size: 12px; padding: 4px 10px; }
@@ -388,6 +389,7 @@
         title="지역·나이·특정 대상 제한이 있는 응모는 숨깁니다">누구나 가능</button>
       <button class="chip" type="button" id="hideDone" aria-pressed="false">완료 숨기기</button>
       <span class="sortgroup">
+        <span class="sortlabel" aria-hidden="true">정렬</span>
         <button class="chip sort" type="button" data-sort="deadline" aria-pressed="true">마감임박순</button>
         <button class="chip sort" type="button" data-sort="new" aria-pressed="false">최신순</button>
       </span>
