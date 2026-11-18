@@ -113,7 +113,7 @@
   }
   .search input::placeholder { color: var(--dim); }
   .chiprow {
-    display: flex; align-items: center; flex-wrap: wrap; gap: 5px;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 4px;
     margin-top: 10px;
   }
   .chiprow::-webkit-scrollbar { display: none; }
@@ -129,7 +129,7 @@
     background: transparent;
     border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 4px 10px;
+    padding: 4px 9px;
     cursor: pointer;
     white-space: nowrap;
     letter-spacing: -.01em;
@@ -173,14 +173,31 @@
   .row.done .thumb { opacity: .45; }
   .row-top { display: flex; gap: 14px; align-items: flex-start; }
   .row-text { flex: 1; min-width: 0; }
-  .brandline { display: flex; align-items: center; gap: 5px; }
+  .brandline { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 6px; }
   .favicon {
     width: 14px; height: 14px; flex: none;
     border-radius: 3px;
     object-fit: contain;
     background: var(--thumb-bg);
   }
-  .brand { font-size: 12px; color: var(--dim); letter-spacing: -.01em; }
+  .brand {
+    font-size: 12px; color: var(--dim); letter-spacing: -.01em;
+    min-width: 0; max-width: 100%;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .chan {
+    flex: none;
+    font-size: 10.5px;
+    font-weight: 600;
+    line-height: 1.65;
+    letter-spacing: -.01em;
+    color: var(--body);
+    background: var(--chip);
+    border-radius: 4px;
+    padding: 0 5px;
+    white-space: nowrap;
+  }
+  html[data-theme="dark"] .chan { color: var(--text); }
   .title {
     margin: 5px 0 0;
     font-size: 18.5px;
@@ -198,6 +215,20 @@
     display: flex; flex-wrap: wrap; gap: 0 6px;
   }
   .meta .sep { color: var(--line-strong); }
+  .restrictline { margin: 7px 0 0; }
+  .restrict {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    padding: 0 5px;
+    line-height: 1.6;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+  }
+  .restrict .rk { color: var(--dim); font-weight: 600; margin-right: 4px; }
   .thumb {
     flex: none;
     width: 84px; height: 84px;
@@ -353,6 +384,8 @@
       <button class="chip" type="button" data-cat="insta" aria-pressed="false">인스타</button>
       <button class="chip" type="button" data-cat="official" aria-pressed="false">공식몰·폼</button>
       <button class="chip" type="button" data-cat="prereg" aria-pressed="false">사전예약</button>
+      <button class="chip" type="button" id="anyOnly" aria-pressed="false"
+        title="지역·나이·특정 대상 제한이 있는 응모는 숨깁니다">누구나 가능</button>
       <button class="chip" type="button" id="hideDone" aria-pressed="false">완료 숨기기</button>
       <span class="sortgroup">
         <button class="chip sort" type="button" data-sort="deadline" aria-pressed="true">마감임박순</button>
@@ -389,6 +422,7 @@
   var LS_CAT = "dealHunter.cat.v1";
   var LS_SORT = "dealHunter.sort.v1";
   var LS_HIDE = "dealHunter.hideDone.v1";
+  var LS_ANY = "dealHunter.anyOnly.v1";
 
   var state = {
     events: [],
@@ -396,6 +430,7 @@
     cat: "all",
     sort: "deadline",
     hideDone: false,
+    anyOnly: false,
     done: {}
   };
 
@@ -437,6 +472,11 @@
     if (n === 0) return "D-DAY";
     return "D-" + n;
   }
+  /* 참여처: 데이터의 channel 우선, 없으면 카테고리 기본값 */
+  var CHAN_BY_CAT = { insta: "인스타그램", prereg: "사전예약", official: "공식 홈페이지", form: "온라인 폼" };
+  function channelLabel(ev) {
+    return ev.channel || CHAN_BY_CAT[ev.category] || "";
+  }
   function kindLabel(ev) {
     if (ev.category === "prereg") return "사전예약";
     if (ev.id === "sooil-50th-quiz") return "선착순";
@@ -457,7 +497,7 @@
   }
   function searchMatch(ev) {
     if (!state.q) return true;
-    var hay = [ev.brand, ev.title, ev.value_note, ev.summary, ev.conditions, ev.category]
+    var hay = [ev.brand, ev.title, ev.event_name, ev.channel, ev.value_note, ev.summary, ev.conditions, ev.category]
       .join(" ").toLowerCase();
     return state.q.toLowerCase().split(/\s+/).filter(Boolean).every(function (t) {
       return hay.indexOf(t) !== -1;
@@ -470,6 +510,7 @@
       if (!categoryMatch(ev)) return false;
       if (!searchMatch(ev)) return false;
       if (state.hideDone && state.done[ev.id]) return false;
+      if (state.anyOnly && ev.restriction) return false;
       return true;
     });
     list.sort(function (a, b) {
@@ -504,6 +545,18 @@
     return p;
   }
 
+  function restrictionLine(ev) {
+    if (!ev.restriction) return null;
+    var p = el("p", "restrictline");
+    var tag = el("span", "restrict");
+    tag.setAttribute("data-restriction", ev.restriction);
+    tag.title = "참여 제한: " + ev.restriction;
+    tag.appendChild(el("span", "rk", "대상"));
+    tag.appendChild(el("span", "rv", ev.restriction));
+    p.appendChild(tag);
+    return p;
+  }
+
   function row(ev) {
     var isDone = !!state.done[ev.id];
     var art = el("article", "row" + (isDone ? " done" : ""));
@@ -521,10 +574,18 @@
     icon.loading = "eager";
     brandline.appendChild(icon);
     brandline.appendChild(el("span", "brand", ev.brand));
+    var chan = channelLabel(ev);
+    if (chan) {
+      var chanEl = el("span", "chan", chan);
+      chanEl.title = "참여처: " + chan;
+      brandline.appendChild(chanEl);
+    }
     text.appendChild(brandline);
 
     text.appendChild(el("h3", "title", ev.title));
     text.appendChild(metaLine(ev));
+    var restriction = restrictionLine(ev);
+    if (restriction) text.appendChild(restriction);
     top.appendChild(text);
 
     var thumb = el("div", "thumb");
@@ -629,6 +690,12 @@
     document.getElementById("hideDone").setAttribute("aria-pressed", String(on));
     render();
   }
+  function setAnyOnly(on) {
+    state.anyOnly = on;
+    writeJSON(LS_ANY, on);
+    document.getElementById("anyOnly").setAttribute("aria-pressed", String(on));
+    render();
+  }
 
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -661,6 +728,9 @@
     document.getElementById("hideDone").addEventListener("click", function () {
       setHideDone(!state.hideDone);
     });
+    document.getElementById("anyOnly").addEventListener("click", function () {
+      setAnyOnly(!state.anyOnly);
+    });
     document.getElementById("themeBtn").addEventListener("click", function () {
       var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(next);
@@ -675,10 +745,12 @@
     state.cat = readJSON(LS_CAT, "all") || "all";
     state.sort = readJSON(LS_SORT, "deadline") || "deadline";
     state.hideDone = !!readJSON(LS_HIDE, false);
+    state.anyOnly = !!readJSON(LS_ANY, false);
     bind();
     setCat(state.cat);
     setSort(state.sort);
     setHideDone(state.hideDone);
+    setAnyOnly(state.anyOnly);
     updateCounts();
 
     var host = document.getElementById("list");
