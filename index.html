@@ -22,6 +22,8 @@
     --accent-soft: #fbf0ea;
     --thumb-bg: #f6f4f0;
     --ok: #2f7d57;
+    --ok-soft: #edf5f0;
+    --ok-line: #b7d8c6;
     --radius: 12px;
   }
   html[data-theme="dark"] {
@@ -38,6 +40,8 @@
     --accent-soft: #2a1c15;
     --thumb-bg: #1c1b19;
     --ok: #6bbf92;
+    --ok-soft: #17251d;
+    --ok-line: #2f5341;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -95,7 +99,7 @@
   .toolbar {
     position: sticky; top: 0; z-index: 6;
     background: var(--bg);
-    padding: 16px 0 10px;
+    padding: 14px 0 8px;
   }
   .search {
     display: flex; align-items: center; gap: 7px;
@@ -114,14 +118,58 @@
   .search input::placeholder { color: var(--dim); }
   .chiprow {
     display: flex; align-items: center; flex-wrap: wrap; gap: 4px;
-    margin-top: 10px;
+    margin-top: 8px;
   }
   .chiprow::-webkit-scrollbar { display: none; }
-  .sortgroup { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; }
-  .sortlabel { font-size: 11px; color: var(--dim); letter-spacing: -.01em; }
+  .sortgroup { display: inline-flex; align-items: center; gap: 5px; flex: none; }
+  .sortrow {
+    display: flex; align-items: center; justify-content: flex-end; gap: 5px;
+    margin-top: 6px;
+  }
+  .sortlabel { font-size: 11px; color: var(--dim); letter-spacing: -.01em; flex: none; }
+  .sortsep {
+    flex: none; width: 1px; height: 14px;
+    background: var(--line-strong); margin: 0 3px 0 6px;
+  }
+  .prizerow {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 5px;
+    margin-top: 8px;
+  }
+  .prizerow::-webkit-scrollbar { display: none; }
+  .chip.pz { display: inline-flex; align-items: center; gap: 4px; }
+  .chip.pz .pz-ico { font-size: 12px; line-height: 1; }
+  .chip.pz .pz-c {
+    font-size: 10px; font-weight: 700;
+    line-height: 1.5;
+    min-width: 16px; padding: 0 4px;
+    border-radius: 999px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: var(--dim);
+    background: var(--chip);
+  }
+  .chip.pz[aria-pressed="true"] .pz-c { color: var(--bg); background: var(--ink); }
+  .chip.pz[aria-pressed="true"] .pz-ico { opacity: 1; }
+  #enteredOnly .pz-c {
+    font-size: 10px; font-weight: 700; line-height: 1.5;
+    min-width: 16px; padding: 0 4px; border-radius: 999px; text-align: center;
+    font-variant-numeric: tabular-nums; color: var(--dim); background: var(--chip);
+  }
+  #enteredOnly[aria-pressed="true"] {
+    color: var(--ok); border-color: var(--ok); background: var(--ok-soft); font-weight: 700;
+  }
+  #enteredOnly[aria-pressed="true"] .pz-c { color: var(--bg); background: var(--ok); }
   @media (max-width: 600px) {
-    .chiprow { row-gap: 7px; }
+    .prizerow, .chiprow {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 1px;
+    }
     .chip { font-size: 12px; padding: 4px 10px; }
+    .chip.pz { padding: 4px 9px; }
+    .sortrow { margin-top: 6px; }
   }
   .chip {
     flex: none;
@@ -170,8 +218,8 @@
     padding: 22px 0 20px;
     border-bottom: 1px solid var(--line);
   }
-  .row.done .title { color: var(--dim); text-decoration: line-through; text-decoration-thickness: 1px; }
-  .row.done .thumb { opacity: .45; }
+  .row.entered { background: linear-gradient(90deg, var(--ok-soft), rgba(0,0,0,0) 78%); }
+  .row.entered .thumb { box-shadow: 0 0 0 1px var(--ok-line); }
   .row-top { display: flex; gap: 14px; align-items: flex-start; }
   .row-text { flex: 1; min-width: 0; }
   .brandline { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 6px; }
@@ -231,6 +279,7 @@
   }
   .restrict .rk { color: var(--dim); font-weight: 600; margin-right: 4px; }
   .thumb {
+    position: relative;
     flex: none;
     width: 84px; height: 84px;
     border-radius: var(--radius);
@@ -238,6 +287,16 @@
     overflow: hidden;
   }
   .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .enter-badge {
+    position: absolute; top: 5px; right: 5px;
+    width: 19px; height: 19px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--ok); color: #fff;
+    font-size: 11px; font-weight: 800; line-height: 1;
+    box-shadow: 0 0 0 2px var(--bg);
+  }
+  .enter-badge[hidden] { display: none; }
   html[data-theme="dark"] .thumb img { filter: brightness(.9) contrast(.98); }
 
   .how {
@@ -293,32 +352,44 @@
   .go:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .go .ext { font-size: 11px; color: var(--dim); padding-left: 2px; }
 
+  .enter-wrap { flex: none; display: inline-flex; align-items: center; gap: 8px; }
+  .enter-when {
+    font-size: 11px; color: var(--dim);
+    letter-spacing: -.01em; font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .enter-when[hidden] { display: none; }
   .done-toggle {
     flex: none;
-    display: inline-flex; align-items: center; gap: 6px;
-    font: inherit; font-size: 12px;
+    display: inline-flex; align-items: center; gap: 5px;
+    font: inherit; font-size: 12px; font-weight: 600;
     color: var(--dim);
     background: transparent;
-    border: 0;
-    border-radius: 4px;
-    padding: 2px 0;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 3px 10px;
     cursor: pointer;
     letter-spacing: -.01em;
+    white-space: nowrap;
+    transition: color .12s, background .12s, border-color .12s;
   }
-  .done-toggle:hover { color: var(--ink); }
+  .done-toggle:hover { color: var(--ink); border-color: var(--ink); }
   .done-toggle .dot {
-    width: 12px; height: 12px; border-radius: 50%;
-    border: 1.5px solid var(--line-strong);
+    width: 11px; height: 11px; border-radius: 50%;
+    border: 1.5px solid currentColor;
     display: inline-block;
-    transition: background .12s, border-color .12s;
+    flex: none;
   }
-  .done-toggle[aria-pressed="true"] { color: var(--ok); }
-  .done-toggle[aria-pressed="true"] .dot {
-    border-color: var(--ok);
-    background: var(--ok);
-    box-shadow: inset 0 0 0 2px var(--bg);
+  .done-toggle .chk { display: none; font-size: 11px; line-height: 1; }
+  .done-toggle[aria-pressed="true"] {
+    color: var(--ok);
+    background: var(--ok-soft);
+    border-color: var(--ok-line);
   }
+  .done-toggle[aria-pressed="true"] .dot { display: none; }
+  .done-toggle[aria-pressed="true"] .chk { display: inline; }
   .done-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .row-foot .go { min-width: 0; }
 
   /* ---------- states ---------- */
   .empty {
@@ -380,14 +451,22 @@
       </svg>
       <input id="q" type="search" placeholder="브랜드·경품 검색 (갤럭시, 상품권, 사전예약)" autocomplete="off" aria-label="검색">
     </label>
-    <div class="chiprow" id="catRow" role="group" aria-label="필터">
-      <button class="chip" type="button" data-cat="all" aria-pressed="true">전체</button>
+    <div class="prizerow" id="prizeRow" role="group" aria-label="경품별 분류"></div>
+    <div class="chiprow" id="catRow" role="group" aria-label="참여 방식·조건 필터">
+      <button class="chip" type="button" id="enteredOnly" aria-pressed="false"
+        title="내가 응모 완료로 체크한 응모만 모아 봅니다">✅ 내가 응모한 것 <span class="pz-c" id="enteredCount">0</span></button>
+      <button class="chip" type="button" id="hideDone" aria-pressed="false"
+        title="이미 응모한 항목은 숨깁니다">미응모만</button>
+      <span class="sortsep" aria-hidden="true"></span>
+      <button class="chip" type="button" data-cat="all" aria-pressed="true"
+        title="참여처 제한 없이 모두 보기">방식 전체</button>
       <button class="chip" type="button" data-cat="insta" aria-pressed="false">인스타</button>
       <button class="chip" type="button" data-cat="official" aria-pressed="false">공식몰·폼</button>
       <button class="chip" type="button" data-cat="prereg" aria-pressed="false">사전예약</button>
       <button class="chip" type="button" id="anyOnly" aria-pressed="false"
         title="지역·나이·특정 대상 제한이 있는 응모는 숨깁니다">누구나 가능</button>
-      <button class="chip" type="button" id="hideDone" aria-pressed="false">완료 숨기기</button>
+    </div>
+    <div class="sortrow">
       <span class="sortgroup">
         <span class="sortlabel" aria-hidden="true">정렬</span>
         <button class="chip sort" type="button" data-sort="deadline" aria-pressed="true">마감임박순</button>
@@ -399,7 +478,7 @@
 
 <main class="wrap">
   <div class="list-head">
-    <h2>진행 중인 혜택 <span class="num" id="countNow">(–)</span></h2>
+    <h2><span id="listTitle">진행 중인 혜택</span> <span class="num" id="countNow">(–)</span></h2>
     <span class="stamp" id="updated">– 확인</span>
   </div>
 
@@ -411,7 +490,7 @@
 <footer>
   <div class="wrap">
     <p>모든 항목은 공식 페이지를 직접 열어 마감 전임을 확인한 것만 실었습니다. 응모 전 마감일·조건은 공식 페이지에서 한 번 더 확인하세요.</p>
-    <p>응모 완료 <b id="countDone">0</b>건 · 체크 상태는 이 브라우저에만 저장됩니다.</p>
+    <p>응모 완료 <b id="countDone">0</b>건 · 응모 기록은 이 브라우저(localStorage)에만 저장됩니다.</p>
   </div>
 </footer>
 
@@ -419,21 +498,54 @@
 (function () {
   "use strict";
 
-  var LS_DONE = "dealHunter.done.v1";
+  /* localStorage keys ---------------------------------------------------- */
+  var LS_ENTERED = "dealer_deal_entered_v1";   /* { id: ISO 응모 시각 } */
+  var LS_ENTERED_OLD = "dealHunter.done.v1";   /* 예전 true/false 기록 (자동 이전) */
+  var LS_PRIZE = "dealer_deal_prize_cat_v1";
   var LS_THEME = "dealHunter.theme.v1";
   var LS_CAT = "dealHunter.cat.v1";
   var LS_SORT = "dealHunter.sort.v1";
   var LS_HIDE = "dealHunter.hideDone.v1";
   var LS_ANY = "dealHunter.anyOnly.v1";
 
+  /* 경품별 분류 ----------------------------------------------------------- */
+  var PRIZE = [
+    { key: "all", label: "전체 경품", icon: "" },
+    { key: "coffee", label: "커피·음료", icon: "☕" },
+    { key: "voucher", label: "상품권·페이", icon: "🎫" },
+    { key: "food", label: "치킨·식품", icon: "🍗" },
+    { key: "tech", label: "디지털·가전", icon: "🎧" },
+    { key: "etc", label: "굿즈·기타", icon: "🎁" }
+  ];
+  var PRIZE_ORDER = ["coffee", "voucher", "food", "tech", "etc"];
+  /* 일일 업데이트가 다른 이름으로 넣어도 같은 칩으로 모이게 */
+  var PRIZE_ALIAS = {
+    digital: "tech", device: "tech", electronics: "tech", gadget: "tech", it: "tech",
+    goods: "etc", other: "etc", misc: "etc",
+    gift: "voucher", giftcard: "voucher", "gift-card": "voucher", coupon: "voucher", cash: "voucher", pay: "voucher",
+    drink: "coffee", beverage: "coffee", cafe: "coffee",
+    snack: "food", chicken: "food", meal: "food"
+  };
+  var PRIZE_RX = {
+    tech: /갤럭시|아이폰|iphone|맥북|노트북|태블릿|아이패드|에어팟|버즈|이어폰|헤드셋|닌텐도|스위치|switch|플레이스테이션|playstation|rtx|그래픽카드|모니터|가전|비스포크|로봇청소기|스마트워치|tv\b|휴대폰/,
+    food: /치킨|교촌|사과|쌀|대추|부각|양갱|과일|식품|간식|빵|케이크|한우|갈비|피자|떡|견과|홍삼|햄|참치/,
+    coffee: /커피|아메리카노|라떼|투썸|메가커피|메가mgc|스타벅스|컴포즈|카페|음료|주스|스무디/,
+    voucher: /네이버페이|카카오페이|상품권|기프트카드|기프트 카드|주유쿠폰|금액권|포인트|온누리|문화상품권|쿠폰|페이|여기어때|야놀자|숙박권/,
+    etc: /피규어|굿즈|키트|초대권|영양제|세트|공연|티켓|관람|드라이룸/
+  };
+
   var state = {
     events: [],
+    loaded: false,
     q: "",
     cat: "all",
+    prize: "all",
     sort: "deadline",
     hideDone: false,
     anyOnly: false,
-    done: {}
+    enteredOnly: false,
+    entered: {},
+    open: {}
   };
 
   function readJSON(key, fallback) {
@@ -490,6 +602,37 @@
     if (p.length !== 3) return label;
     return +p[1] + ". " + +p[2] + ". 확인";
   }
+  function whenLabel(iso) {
+    var d = new Date(iso);
+    if (!iso || isNaN(d.getTime())) return "";
+    return (d.getMonth() + 1) + "." + d.getDate() + " 응모";
+  }
+
+  /* ---------- 경품 분류 ---------- */
+  /* title(대표 경품명)에서 먼저 나오는 경품 종류를 쓴다. 없으면 value_note → conditions → 기타 */
+  function firstPrizeInText(text) {
+    if (!text) return null;
+    var best = null, bestPos = Infinity;
+    for (var i = 0; i < PRIZE_ORDER.length; i++) {
+      var rx = PRIZE_RX[PRIZE_ORDER[i]];
+      if (!rx) continue;
+      var m = text.match(rx);
+      if (m && m.index < bestPos) { bestPos = m.index; best = PRIZE_ORDER[i]; }
+    }
+    return best;
+  }
+  function inferPrize(ev) {
+    return firstPrizeInText(String(ev.title || "").toLowerCase())
+      || firstPrizeInText(String(ev.value_note || "").toLowerCase())
+      || firstPrizeInText(String(ev.conditions || "").toLowerCase())
+      || "etc";
+  }
+  function prizeOf(ev) {
+    var c = String(ev.prize_category || "").toLowerCase().trim();
+    c = PRIZE_ALIAS[c] || c;
+    if (PRIZE_ORDER.indexOf(c) !== -1) return c;
+    return inferPrize(ev);
+  }
 
   /* ---------- filtering ---------- */
   function categoryMatch(ev) {
@@ -499,11 +642,23 @@
   }
   function searchMatch(ev) {
     if (!state.q) return true;
-    var hay = [ev.brand, ev.title, ev.event_name, ev.channel, ev.value_note, ev.summary, ev.conditions, ev.category]
-      .join(" ").toLowerCase();
+    var hay = [ev.brand, ev.title, ev.event_name, ev.channel, ev.value_note, ev.summary,
+      ev.conditions, ev.category, ev.restriction].join(" ").toLowerCase();
     return state.q.toLowerCase().split(/\s+/).filter(Boolean).every(function (t) {
       return hay.indexOf(t) !== -1;
     });
+  }
+  function prizeMatch(ev) {
+    return state.prize === "all" || prizeOf(ev) === state.prize;
+  }
+  function liveEvents() {
+    return state.events.filter(function (ev) {
+      var d = daysLeft(ev);
+      return !(d !== null && d < 0);
+    });
+  }
+  function enteredLiveCount() {
+    return liveEvents().filter(function (ev) { return !!state.entered[ev.id]; }).length;
   }
   function visibleEvents() {
     var list = state.events.filter(function (ev) {
@@ -511,8 +666,10 @@
       if (d !== null && d < 0) return false;
       if (!categoryMatch(ev)) return false;
       if (!searchMatch(ev)) return false;
-      if (state.hideDone && state.done[ev.id]) return false;
+      if (!prizeMatch(ev)) return false;
       if (state.anyOnly && ev.restriction) return false;
+      if (state.enteredOnly && !state.entered[ev.id]) return false;
+      if (state.hideDone && state.entered[ev.id]) return false;
       return true;
     });
     list.sort(function (a, b) {
@@ -525,6 +682,22 @@
       return String(a.brand).localeCompare(String(b.brand));
     });
     return list;
+  }
+  /* 경품 칩 개수: 마감 전 + 검색어 + 참여방식 + 제한 + 응모 상태 필터 기준(경품 칩 자신은 제외) */
+  function prizeCounts() {
+    var counts = { all: 0 };
+    PRIZE_ORDER.forEach(function (k) { counts[k] = 0; });
+    liveEvents().forEach(function (ev) {
+      if (!categoryMatch(ev)) return;
+      if (!searchMatch(ev)) return;
+      if (state.anyOnly && ev.restriction) return;
+      if (state.enteredOnly && !state.entered[ev.id]) return;
+      if (state.hideDone && state.entered[ev.id]) return;
+      counts.all++;
+      var k = prizeOf(ev);
+      counts[k] = (counts[k] || 0) + 1;
+    });
+    return counts;
   }
 
   /* ---------- render ---------- */
@@ -560,9 +733,11 @@
   }
 
   function row(ev) {
-    var isDone = !!state.done[ev.id];
-    var art = el("article", "row" + (isDone ? " done" : ""));
+    var enteredIso = state.entered[ev.id] || "";
+    var isEntered = !!enteredIso;
+    var art = el("article", "row" + (isEntered ? " entered" : ""));
     art.setAttribute("data-id", ev.id);
+    art.setAttribute("data-prize", prizeOf(ev));
 
     var top = el("div", "row-top");
     var text = el("div", "row-text");
@@ -598,21 +773,28 @@
     im.loading = "eager";
     im.decoding = "async";
     thumb.appendChild(im);
+    var badge = el("span", "enter-badge", "✓");
+    badge.setAttribute("aria-hidden", "true");
+    badge.title = "응모 완료" + (isEntered ? " · " + whenLabel(enteredIso) : "");
+    badge.hidden = !isEntered;
+    thumb.appendChild(badge);
     top.appendChild(thumb);
     art.appendChild(top);
 
     art.appendChild(el("p", "how", ev.summary));
 
+    var condOpen = !!state.open[ev.id];
     var condBtn = el("button", "cond-toggle");
     condBtn.type = "button";
-    condBtn.setAttribute("aria-expanded", "false");
-    condBtn.innerHTML = '참여 조건 <span class="plus" aria-hidden="true">+</span>';
+    condBtn.setAttribute("aria-expanded", String(condOpen));
+    condBtn.innerHTML = '참여 조건 <span class="plus" aria-hidden="true">' + (condOpen ? "−" : "+") + "</span>";
     var condBody = el("p", "cond-body", ev.conditions || "");
-    condBody.hidden = true;
+    condBody.hidden = !condOpen;
     condBody.id = "cond-" + ev.id;
     condBtn.setAttribute("aria-controls", condBody.id);
     condBtn.addEventListener("click", function () {
       var open = condBtn.getAttribute("aria-expanded") === "true";
+      state.open[ev.id] = !open;
       condBtn.setAttribute("aria-expanded", String(!open));
       condBtn.innerHTML = '참여 조건 <span class="plus" aria-hidden="true">' + (open ? "+" : "−") + "</span>";
       condBody.hidden = open;
@@ -631,24 +813,40 @@
     go.appendChild(ext);
     foot.appendChild(go);
 
+    var wrap = el("div", "enter-wrap");
+    var when = el("span", "enter-when", isEntered ? whenLabel(enteredIso) : "");
+    when.hidden = !isEntered;
+    wrap.appendChild(when);
+
     var doneBtn = el("button", "done-toggle");
     doneBtn.type = "button";
-    doneBtn.setAttribute("aria-pressed", String(isDone));
-    doneBtn.setAttribute("aria-label", ev.title + " 응모 완료 표시");
-    var dot = el("span", "dot");
-    dot.setAttribute("aria-hidden", "true");
-    doneBtn.appendChild(dot);
-    doneBtn.appendChild(document.createTextNode(isDone ? "응모 완료" : "응모 완료"));
+    doneBtn.setAttribute("aria-pressed", String(isEntered));
+    doneBtn.setAttribute("aria-label", ev.title + (isEntered ? " 응모 완료 취소" : " 응모 완료로 체크"));
+    if (isEntered) doneBtn.title = whenLabel(enteredIso) + " · 누르면 취소";
+    doneBtn.appendChild(el("span", "dot"));
+    doneBtn.querySelector(".dot").setAttribute("aria-hidden", "true");
+    doneBtn.appendChild(el("span", "chk", "✓"));
+    doneBtn.querySelector(".chk").setAttribute("aria-hidden", "true");
+    doneBtn.appendChild(el("span", "dt-label", isEntered ? "응모 완료" : "응모 체크"));
     doneBtn.addEventListener("click", function () {
       var next = doneBtn.getAttribute("aria-pressed") !== "true";
+      if (next) state.entered[ev.id] = new Date().toISOString();
+      else delete state.entered[ev.id];
+      writeJSON(LS_ENTERED, state.entered);
       doneBtn.setAttribute("aria-pressed", String(next));
-      if (next) state.done[ev.id] = true; else delete state.done[ev.id];
-      writeJSON(LS_DONE, state.done);
-      art.classList.toggle("done", next);
-      updateCounts();
-      if (state.hideDone && next) render();
+      doneBtn.setAttribute("aria-label", ev.title + (next ? " 응모 완료 취소" : " 응모 완료로 체크"));
+      doneBtn.querySelector(".dt-label").textContent = next ? "응모 완료" : "응모 체크";
+      art.classList.toggle("entered", next);
+      badge.hidden = !next;
+      when.hidden = !next;
+      when.textContent = next ? whenLabel(state.entered[ev.id]) : "";
+      if (next) doneBtn.title = whenLabel(state.entered[ev.id]) + " · 누르면 취소";
+      else doneBtn.removeAttribute("title");
+      syncChips();
+      if ((next && state.hideDone) || (!next && state.enteredOnly)) render();
     });
-    foot.appendChild(doneBtn);
+    wrap.appendChild(doneBtn);
+    foot.appendChild(wrap);
     art.appendChild(foot);
 
     return art;
@@ -661,41 +859,107 @@
     var frag = document.createDocumentFragment();
     list.forEach(function (ev) { frag.appendChild(row(ev)); });
     host.appendChild(frag);
-    document.getElementById("empty").hidden = list.length !== 0;
+
     document.getElementById("countNow").textContent = "(" + list.length + ")";
+    document.getElementById("listTitle").textContent = state.enteredOnly ? "내가 응모한 것" : "진행 중인 혜택";
+
+    var emptyEl = document.getElementById("empty");
+    if (list.length) {
+      emptyEl.hidden = true;
+    } else {
+      var msg;
+      if (state.enteredOnly && enteredLiveCount() === 0) {
+        msg = "아직 응모 완료로 체크한 응모가 없습니다. 카드 오른쪽 아래 ‘응모 체크’를 누르면 여기에 모입니다.";
+      } else if (state.enteredOnly) {
+        msg = "응모한 것 중에는 지금 조건에 맞는 항목이 없습니다. 검색어나 필터를 바꿔 보세요.";
+      } else if (state.hideDone) {
+        msg = "미응모 항목이 없습니다. ‘미응모만’을 끄면 응모한 것까지 보입니다.";
+      } else {
+        msg = "조건에 맞는 응모가 없습니다. 검색어나 필터를 바꿔 보세요.";
+      }
+      emptyEl.textContent = msg;
+      emptyEl.hidden = false;
+    }
+    syncChips();
   }
 
-  function updateCounts() {
-    document.getElementById("countDone").textContent = Object.keys(state.done).length;
+  /* ---------- chips ---------- */
+  function buildPrizeChips() {
+    var host = document.getElementById("prizeRow");
+    if (!host) return;
+    host.textContent = "";
+    PRIZE.forEach(function (p) {
+      var b = el("button", "chip pz");
+      b.type = "button";
+      b.setAttribute("data-prize", p.key);
+      b.setAttribute("aria-pressed", String(state.prize === p.key));
+      if (p.icon) {
+        var ic = el("span", "pz-ico", p.icon);
+        ic.setAttribute("aria-hidden", "true");
+        b.appendChild(ic);
+      }
+      b.appendChild(el("span", "pz-label", p.label));
+      b.appendChild(el("span", "pz-c", "–"));
+      b.addEventListener("click", function () { setPrize(p.key); });
+      host.appendChild(b);
+    });
+  }
+
+  function syncChips() {
+    var counts = state.loaded ? prizeCounts() : null;
+    [].forEach.call(document.querySelectorAll("#prizeRow .chip[data-prize]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.prize === state.prize));
+      var c = b.querySelector(".pz-c");
+      if (c) c.textContent = counts ? String(counts[b.dataset.prize] || 0) : "–";
+    });
+    [].forEach.call(document.querySelectorAll("#catRow .chip[data-cat]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.cat === state.cat));
+    });
+    [].forEach.call(document.querySelectorAll("#catRow .chip[data-sort]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.sort === state.sort));
+    });
+    document.getElementById("anyOnly").setAttribute("aria-pressed", String(state.anyOnly));
+    document.getElementById("enteredOnly").setAttribute("aria-pressed", String(state.enteredOnly));
+    document.getElementById("hideDone").setAttribute("aria-pressed", String(state.hideDone));
+    var n = state.loaded ? String(enteredLiveCount()) : "–";
+    document.getElementById("enteredCount").textContent = n;
+    document.getElementById("countDone").textContent = state.loaded ? String(enteredLiveCount()) : "0";
   }
 
   /* ---------- controls ---------- */
+  function setPrize(key) {
+    if (key !== "all" && PRIZE_ORDER.indexOf(key) === -1) key = "all";
+    state.prize = key;
+    writeJSON(LS_PRIZE, key);
+    render();
+  }
   function setCat(cat) {
     state.cat = cat;
     writeJSON(LS_CAT, cat);
-    [].forEach.call(document.querySelectorAll("#catRow .chip[data-cat]"), function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.cat === cat));
-    });
     render();
   }
   function setSort(sort) {
     state.sort = sort;
     writeJSON(LS_SORT, sort);
-    [].forEach.call(document.querySelectorAll("#catRow .chip[data-sort]"), function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.sort === sort));
-    });
     render();
   }
   function setHideDone(on) {
     state.hideDone = on;
+    if (on) state.enteredOnly = false;
     writeJSON(LS_HIDE, on);
-    document.getElementById("hideDone").setAttribute("aria-pressed", String(on));
     render();
   }
   function setAnyOnly(on) {
     state.anyOnly = on;
     writeJSON(LS_ANY, on);
-    document.getElementById("anyOnly").setAttribute("aria-pressed", String(on));
+    render();
+  }
+  function setEnteredOnly(on) {
+    state.enteredOnly = on;
+    if (on && state.hideDone) {
+      state.hideDone = false;
+      writeJSON(LS_HIDE, false);
+    }
     render();
   }
 
@@ -730,6 +994,9 @@
     document.getElementById("hideDone").addEventListener("click", function () {
       setHideDone(!state.hideDone);
     });
+    document.getElementById("enteredOnly").addEventListener("click", function () {
+      setEnteredOnly(!state.enteredOnly);
+    });
     document.getElementById("anyOnly").addEventListener("click", function () {
       setAnyOnly(!state.anyOnly);
     });
@@ -741,19 +1008,40 @@
   }
 
   /* ---------- boot ---------- */
+  function loadEntered() {
+    var out = {};
+    var cur = readJSON(LS_ENTERED, null);
+    if (cur && typeof cur === "object" && !Array.isArray(cur)) {
+      Object.keys(cur).forEach(function (k) {
+        var v = cur[k];
+        if (typeof v === "string" && v) out[k] = v;
+        else if (v) out[k] = new Date().toISOString();
+      });
+      return out;
+    }
+    var old = readJSON(LS_ENTERED_OLD, null);
+    if (old && typeof old === "object" && !Array.isArray(old)) {
+      var now = new Date().toISOString();
+      Object.keys(old).forEach(function (k) { if (old[k]) out[k] = now; });
+      if (Object.keys(out).length) writeJSON(LS_ENTERED, out);
+      try { localStorage.removeItem(LS_ENTERED_OLD); } catch (e) {}
+    }
+    return out;
+  }
+
   function boot() {
     initTheme();
-    state.done = readJSON(LS_DONE, {}) || {};
+    state.entered = loadEntered();
     state.cat = readJSON(LS_CAT, "all") || "all";
     state.sort = readJSON(LS_SORT, "deadline") || "deadline";
     state.hideDone = !!readJSON(LS_HIDE, false);
     state.anyOnly = !!readJSON(LS_ANY, false);
+    var savedPrize = readJSON(LS_PRIZE, "all");
+    state.prize = (savedPrize === "all" || PRIZE_ORDER.indexOf(savedPrize) !== -1) ? savedPrize : "all";
+
+    buildPrizeChips();
     bind();
-    setCat(state.cat);
-    setSort(state.sort);
-    setHideDone(state.hideDone);
-    setAnyOnly(state.anyOnly);
-    updateCounts();
+    syncChips();
 
     var host = document.getElementById("list");
     for (var i = 0; i < 4; i++) host.appendChild(el("div", "skeleton"));
@@ -765,6 +1053,7 @@
       })
       .then(function (data) {
         state.events = (data.events || []).slice();
+        state.loaded = true;
         document.getElementById("updated").textContent = stampLabel(data.updated_label || "");
         render();
       })
