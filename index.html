@@ -171,6 +171,10 @@
     .chip.pz { padding: 4px 9px; }
     .sortrow { margin-top: 6px; }
   }
+  /* 넓은 화면에서는 칩이 두 줄로 늘어나므로 필터 바를 고정하지 않는다 */
+  @media (min-width: 601px) {
+    .toolbar { position: static; }
+  }
   .chip {
     flex: none;
     font: inherit; font-size: 12px;
