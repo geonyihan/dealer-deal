@@ -730,7 +730,12 @@
   function deadlineLabel(ev) {
     var d = parseDate(ev.deadline);
     if (!d) return "상시";
-    return (d.getMonth() + 1) + "월 " + d.getDate() + "일 마감";
+    var y = d.getFullYear() !== todayKST().getFullYear() ? d.getFullYear() + "년 " : "";
+    return y + (d.getMonth() + 1) + "월 " + d.getDate() + "일 마감";
+  }
+  /* 자격 제한이 실제로 있는지: '누구나'·'제한 없음'은 제한 없음으로 본다 */
+  function hasRestriction(ev) {
+    return !!ev.restriction && !/누구나|제한\s*없음/.test(ev.restriction);
   }
   function ddayLabel(ev) {
     var n = daysLeft(ev);
@@ -854,7 +859,7 @@
       var ok = q.toLowerCase().split(/\s+/).filter(Boolean).every(function (t) { return hay.indexOf(t) !== -1; });
       if (!ok) return false;
     }
-    if (c.st.anyOnly && ev.restriction) return false;
+    if (c.st.anyOnly && hasRestriction(ev)) return false;
     var on = kind === "events" ? c.st.enteredOnly : c.st.checkedOnly;
     if (on && !isChecked(kind, ev)) return false;
     if (c.st.hideDone && isChecked(kind, ev)) return false;
@@ -939,7 +944,7 @@
     var tag = el("span", "restrict");
     tag.setAttribute("data-restriction", ev.restriction);
     tag.title = "참여 조건: " + ev.restriction;
-    tag.appendChild(el("span", "rk", "대상"));
+    tag.appendChild(el("span", "rk", /^누구나/.test(ev.restriction) ? "조건" : "대상"));
     tag.appendChild(el("span", "rv", ev.restriction));
     p.appendChild(tag);
     return p;
