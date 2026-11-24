@@ -21,7 +21,8 @@
    "url": "https://kon.kric.com/project/2610028_A/INDEX.asp",
    "image": "./images/fss-homepage-survey.png",
    "icon": "./images/brands/fss.or.kr.png",
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": false
   },
   {
    "id": "khoa-user-survey",
@@ -41,7 +42,8 @@
    "url": "https://form.naver.com/response/87jxmoqZ8LA",
    "image": "./images/khoa-user-survey.png",
    "icon": "./images/brands/khoa.go.kr.png",
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": true
   },
   {
    "id": "molit-audit-campaign",
@@ -61,7 +63,8 @@
    "url": "https://www.youtube.com/watch?v=gjQKvi7MFT0",
    "image": "./images/molit-audit-campaign.jpg",
    "icon": "./images/brands/molit.go.kr.png",
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": false
   },
   {
    "id": "gg-newsportal-survey",
@@ -81,7 +84,8 @@
    "url": "https://www.gg.go.kr/bbs/boardView.do?bIdx=276274137&bsIdx=838&menuId=1534",
    "image": "./images/gg-newsportal-survey.jpg",
    "icon": "./images/brands/gg.go.kr.png",
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": true
   },
   {
    "id": "jeonbuk-olympic-quiz",
@@ -101,7 +105,8 @@
    "url": "https://www.instagram.com/p/DfyJMbHADH_/",
    "image": "./images/jeonbuk-olympic-quiz.jpg",
    "icon": null,
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": false
   },
   {
    "id": "seoulon-survey",
@@ -121,7 +126,8 @@
    "url": "https://wallet.seoul.go.kr/web/page/cs/notice",
    "image": "./images/seoulon-survey.jpg",
    "icon": "./images/brands/seoul-on.png",
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": true
   },
   {
    "id": "hanwha-tv-comment",
@@ -141,7 +147,8 @@
    "url": "https://www.youtube.com/watch?v=QrkuwJCgSD4",
    "image": "./images/hanwha-tv-comment.jpg",
    "icon": "./images/brands/hanwha.com.png",
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": false
   },
   {
    "id": "buksaetong-travel-pick",
@@ -161,7 +168,8 @@
    "url": "https://www.instagram.com/p/Df6Pofrj6xY/",
    "image": "./images/buksaetong-travel-pick.jpg",
    "icon": null,
-   "verified_at": "2026-11-24"
+   "verified_at": "2026-11-24",
+   "entry_easy": false
   },
   {
    "id": "nia-ai-vibe-coding",
@@ -181,7 +189,8 @@
    "url": "https://aitestbed.kr/ai-event",
    "image": "./images/nia-ai-vibe-coding.jpg",
    "icon": "./images/brands/aitestbed.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   },
   {
    "id": "dragonw-prereg",
@@ -201,7 +210,8 @@
    "url": "https://dragonw.efunkr.com/event/pre/phone.html",
    "image": "./images/dragonw-prereg.jpg",
    "icon": "./images/brands/efunkr.com.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "temppal-kakao-roulette",
@@ -221,7 +231,8 @@
    "url": "https://game.kakao.com/dr/4Uc0mm",
    "image": "./images/temppal-kakao-roulette.jpg",
    "icon": "./images/brands/kakao.com.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "silverpalace-predraw",
@@ -241,7 +252,8 @@
    "url": "https://silverpalace.elementagames.com/special/overture/",
    "image": "./images/silverpalace-predraw.jpg",
    "icon": "./images/brands/elementagames.com.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   },
   {
    "id": "azur-promilia-galaxystore",
@@ -261,7 +273,8 @@
    "url": "https://community.samsung.com/kr/conversations/galaxy-store/%EC%95%84%EC%A3%BC%EB%A5%B4-%ED%94%84%EB%A1%9C%EB%B0%80%EB%A6%AC%EC%95%84-%EC%82%AC%EC%A0%84-%EC%98%88%EC%95%BD-%EC%9D%B4%EB%B2%A4%ED%8A%B8/r1_39214168",
    "image": "./images/azur-promilia-galaxystore.jpg",
    "icon": "./images/brands/samsung.com.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "lguplus-bucketlist",
@@ -281,7 +294,8 @@
    "url": "https://www.lguplus.com/benefit-event/ongoing/82613",
    "image": "./images/lguplus-bucketlist.jpg",
    "icon": "./images/brands/lguplus.com.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   },
   {
    "id": "alba-kkulalba-challenge",
@@ -301,7 +315,8 @@
    "url": "https://event.alba.co.kr/event/719/",
    "image": "./images/alba-kkulalba-challenge.jpg",
    "icon": "./images/brands/alba.co.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "hyundai-chacha-roulette",
@@ -321,7 +336,8 @@
    "url": "https://www.hyundai.com/kr/ko/event/event-hyundai-roulette-2611-event",
    "image": "./images/hyundai-chacha-roulette.jpg",
    "icon": "./images/brands/hyundai.com.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   },
   {
    "id": "nile-awareness-survey",
@@ -341,7 +357,8 @@
    "url": "https://nile.or.kr/usr/wap/detail.do?app=11626&lang=ko&seq=2205792",
    "image": "./images/nile-awareness-survey.jpg",
    "icon": "./images/brands/nile.or.kr.png",
-   "verified_at": "2026-11-20"
+   "verified_at": "2026-11-20",
+   "entry_easy": true
   },
   {
    "id": "miryang-quiz-2026",
@@ -361,7 +378,8 @@
    "url": "https://www.miryang.go.kr/web/qiz/EgovMirEvent.do?evtcd=20261110",
    "image": "./images/miryang-quiz-2026.jpg",
    "icon": "./images/brands/miryang.go.kr.png",
-   "verified_at": "2026-11-20"
+   "verified_at": "2026-11-20",
+   "entry_easy": true
   },
   {
    "id": "modu-plaza-renewal-event",
@@ -381,7 +399,8 @@
    "url": "https://modu.go.kr/front/qustnrNew/qustnrNewFrontView.do?menu_id=421&qustnr_id=643fda170e704cc697601a0d0bac3e93",
    "image": "./images/modu-plaza-renewal-event.jpg",
    "icon": "./images/brands/modu.go.kr.png",
-   "verified_at": "2026-11-20"
+   "verified_at": "2026-11-20",
+   "entry_easy": true
   },
   {
    "id": "samsung-lions-v9",
@@ -401,7 +420,8 @@
    "url": "https://www.samsung.com/sec/event/lions-victory-faq/",
    "image": "./images/samsung-lions-v9.jpg",
    "icon": "./images/brands/samsung.com.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "namwon-ox-quiz",
@@ -421,7 +441,8 @@
    "url": "https://korean.visitkorea.or.kr/detail/event_detail.do?cotid=380a9fd1-4dc9-4de1-891a-9f539e546375",
    "image": "./images/namwon-ox-quiz.jpg",
    "icon": "./images/brands/korean.visitkorea.or.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "yangcheon-policy-quiz",
@@ -441,7 +462,8 @@
    "url": "https://cms.yangcheon.go.kr/site/yangcheon/02/10201050100002026080708.jsp",
    "image": "./images/yangcheon-policy-quiz.jpg",
    "icon": "./images/brands/yangcheon.go.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "twelve-prereg",
@@ -460,7 +482,8 @@
    "url": "https://twelve.hantogames.com/",
    "image": "./images/twelve-prereg.jpg",
    "icon": "./images/brands/hantogames.com.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "sooil-50th-quiz",
@@ -480,7 +503,8 @@
    "url": "https://www.s-oil.com/relation/NewsView.aspx?BoardDataIndex=15630",
    "image": "./images/sooil-50th-quiz.jpg",
    "icon": "./images/brands/s-oil.com.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "kujihako-insta-s2",
@@ -500,7 +524,8 @@
    "url": "https://kujihako.com/events/b13a5470-4f6e-45dc-a4d7-1da45e68b9d5",
    "image": "./images/kujihako-insta-s2.jpg",
    "icon": "./images/brands/kujihako.com.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "darkedenr-prereg",
@@ -520,7 +545,8 @@
    "url": "https://www.darkedenr.co.kr/",
    "image": "./images/darkedenr-prereg.jpg",
    "icon": "./images/brands/darkedenr.co.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "climate-citizen-card",
@@ -540,7 +566,8 @@
    "url": "https://forms.gle/B1sv8LKwGxuyVqFb6",
    "image": "./images/climate-citizen-card.jpg",
    "icon": "./images/brands/me.go.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": false
   },
   {
    "id": "kto-tour100-stamp",
@@ -560,7 +587,8 @@
    "url": "https://korean.visitkorea.or.kr/detail/event_detail.do?cotid=193afdb0-d6ab-4b71-8401-d01d76053833",
    "image": "./images/kto-tour100-stamp.jpg",
    "icon": "./images/brands/korean.visitkorea.or.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": false
   },
   {
    "id": "kocef-homepage-survey",
@@ -580,7 +608,8 @@
    "url": "https://kocef.org/html/board_view.html?b_idx=MzE1MyAg&cate=mbb_notice_expo&gubun=0",
    "image": "./images/kocef-homepage-survey.jpg",
    "icon": "./images/brands/kocef.org.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "wbridge-rejoin-coffee",
@@ -600,7 +629,8 @@
    "url": "https://www.wbridge.or.kr/platform/gnrl/notice/selectNoticeView.do?div_code=11&ntt_sn=101102",
    "image": "./images/wbridge-rejoin-coffee.jpg",
    "icon": "./images/brands/wbridge.or.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "smyc-infofountain-survey",
@@ -620,7 +650,8 @@
    "url": "https://www.smyc.kr/program/?bmode=view&idx=175384307",
    "image": "./images/smyc-infofountain-survey.jpg",
    "icon": "./images/brands/smyc.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "earthquake-safety-quiz-nov",
@@ -640,7 +671,8 @@
    "url": "https://www.xn--le5b23c9wbqa.com/communication/event.php?code=event02&idx=5364&page=1&ptype=view",
    "image": "./images/earthquake-safety-quiz-nov.jpg",
    "icon": "./images/brands/xn--le5b23c9wbqa.com.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "busan-onebook-survey",
@@ -660,7 +692,8 @@
    "url": "https://docs.google.com/forms/d/e/1FAIpQLSczpKJ9EhjVW2efwP5uh3o1APq1UkIaN2yHKpiH-E_C5bl6UA/viewform",
    "image": "./images/busan-onebook-survey.jpg",
    "icon": "./images/brands/busan.go.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "incheon-council-newsletter",
@@ -680,7 +713,8 @@
    "url": "https://www.incheon.go.kr/IC010101/view?curPage=7&nttNo=2046285",
    "image": "./images/incheon-council-newsletter.jpg",
    "icon": "./images/brands/council.incheon.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "kalis-value-survey",
@@ -700,7 +734,8 @@
    "url": "https://www.csi.go.kr/por/noticeViewPop.do?system_cd=COM&bbs_id=noti&bbt_no=149524",
    "image": "./images/kalis-value-survey.jpg",
    "icon": "./images/brands/csi.go.kr.png",
-   "verified_at": "2026-11-18"
+   "verified_at": "2026-11-18",
+   "entry_easy": true
   },
   {
    "id": "epolicy-star-find",
@@ -720,7 +755,8 @@
    "url": "https://www.e-policy.or.kr/web/index.do",
    "image": "./images/epolicy-star-find.png",
    "icon": "./images/brands/e-policy.or.kr.png",
-   "verified_at": "2026-11-19"
+   "verified_at": "2026-11-19",
+   "entry_easy": true
   },
   {
    "id": "mods-medical-data-quiz",
@@ -740,7 +776,8 @@
    "url": "https://www.youtube.com/watch?v=vLcXqdzwsA4",
    "image": "./images/mods-medical-data-quiz.jpg",
    "icon": "./images/brands/mods.go.kr.png",
-   "verified_at": "2026-11-19"
+   "verified_at": "2026-11-19",
+   "entry_easy": false
   },
   {
    "id": "sbiz-first-course",
@@ -760,7 +797,8 @@
    "url": "https://edu.sbiz.or.kr/edu/board/noticeView.do?bbsNo=21623",
    "image": "./images/sbiz-first-course.jpg",
    "icon": "./images/brands/sbiz.or.kr.png",
-   "verified_at": "2026-11-19"
+   "verified_at": "2026-11-19",
+   "entry_easy": false
   },
   {
    "id": "kosis-stat-quiz",
@@ -780,7 +818,8 @@
    "url": "https://kosis.kr/survey/survey47.do",
    "image": "./images/kosis-stat-quiz.jpg",
    "icon": "./images/brands/kosis.kr.png",
-   "verified_at": "2026-11-21"
+   "verified_at": "2026-11-21",
+   "entry_easy": false
   },
   {
    "id": "kepco-power-quiz",
@@ -800,7 +839,8 @@
    "url": "https://kepcoquiz.kr/",
    "image": "./images/kepco-power-quiz.jpg",
    "icon": "./images/brands/kepco.co.kr.png",
-   "verified_at": "2026-11-21"
+   "verified_at": "2026-11-21",
+   "entry_easy": true
   },
   {
    "id": "koceanmooc-theme-survey",
@@ -820,7 +860,8 @@
    "url": "https://www.koceanmooc.or.kr/board/board/6/V/16",
    "image": "./images/koceanmooc-theme-survey.jpg",
    "icon": "./images/brands/koceanmooc.or.kr.png",
-   "verified_at": "2026-11-21"
+   "verified_at": "2026-11-21",
+   "entry_easy": true
   },
   {
    "id": "kcisa-culture-discovery",
@@ -840,7 +881,8 @@
    "url": "https://blog.naver.com/kcis_/224457779388",
    "image": "./images/kcisa-culture-discovery.jpg",
    "icon": "./images/brands/kcisa.kr.png",
-   "verified_at": "2026-11-21"
+   "verified_at": "2026-11-21",
+   "entry_easy": true
   },
   {
    "id": "moel-knda-newdeal",
@@ -860,7 +902,8 @@
    "url": "https://www.youtube.com/watch?v=2i54henOz40",
    "image": "./images/moel-knda-newdeal.jpg",
    "icon": "./images/brands/moel.go.kr.png",
-   "verified_at": "2026-11-21"
+   "verified_at": "2026-11-21",
+   "entry_easy": false
   },
   {
    "id": "mcee-stat-portal-join",
@@ -880,7 +923,8 @@
    "url": "https://stat.mcee.go.kr/portal/etc/event/insertBulletinPage.do",
    "image": "./images/mcee-stat-portal-join.jpg",
    "icon": "./images/brands/mcee.go.kr.png",
-   "verified_at": "2026-11-21"
+   "verified_at": "2026-11-21",
+   "entry_easy": true
   },
   {
    "id": "kca-choking-campaign",
@@ -900,7 +944,8 @@
    "url": "https://www.kca.go.kr/home/sub.do?menukey=4003&mode=view&no=1004582867",
    "image": "./images/kca-choking-campaign.jpg",
    "icon": "./images/brands/kca.go.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   },
   {
    "id": "khealth-drink-cost",
@@ -920,7 +965,8 @@
    "url": "https://www.instagram.com/p/Df59VSZklqQ/",
    "image": "./images/khealth-drink-cost.jpg",
    "icon": "./images/brands/noalcohol.kr.png",
-   "verified_at": "2026-11-21"
+   "verified_at": "2026-11-21",
+   "entry_easy": false
   },
   {
    "id": "hangeul-webzine-quiz-nov",
@@ -940,7 +986,8 @@
    "url": "https://www.hangeul.go.kr/webzine/202611/sub3_1.html",
    "image": "./images/hangeul-quiz-naverpay.jpg",
    "icon": "./images/brands/hangeul.go.kr.png",
-   "verified_at": "2026-11-22"
+   "verified_at": "2026-11-22",
+   "entry_easy": true
   },
   {
    "id": "hangeul-webzine-spelling-nov",
@@ -960,7 +1007,8 @@
    "url": "https://www.hangeul.go.kr/webzine/202611/sub3_2.html",
    "image": "./images/hangeul-spelling-megacoffee.jpg",
    "icon": "./images/brands/hangeul.go.kr.png",
-   "verified_at": "2026-11-22"
+   "verified_at": "2026-11-22",
+   "entry_easy": true
   },
   {
    "id": "samsung-grandfestival-quiz",
@@ -980,7 +1028,8 @@
    "url": "https://www.samsung.com/sec/event/samsungsale/2611/",
    "image": "./images/samsung-grandquiz-tumblrmug.jpg",
    "icon": "./images/brands/samsung.com.png",
-   "verified_at": "2026-11-22"
+   "verified_at": "2026-11-22",
+   "entry_easy": true
   },
   {
    "id": "epolicy-e2u-quiz",
@@ -1000,7 +1049,8 @@
    "url": "https://www.e-policy.or.kr/web/lay1/bbs/S1T16C17/A/1/view.do?article_seq=6787",
    "image": "./images/epolicy-quiz-macbook.jpg",
    "icon": "./images/brands/e-policy.or.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "modu-regional-review-vote",
@@ -1020,7 +1070,8 @@
    "url": "https://modu.go.kr/fron/jdgmn/jdgmnView.do?date_range=all&menu_id=393&miv_pageNo=2&orderBy=a&qustnr_bgnde=&qustnr_endde=&qustnr_id=ca79b2f1456340ec9894847c50747a0d&searchQustnrSttusCode=&search_code=sj_cn&search_orgNm=",
    "image": "./images/modu-regional-review.jpg",
    "icon": "./images/brands/modu.go.kr.png",
-   "verified_at": "2026-11-22"
+   "verified_at": "2026-11-22",
+   "entry_easy": true
   },
   {
    "id": "kita-export-quiz",
@@ -1040,7 +1091,8 @@
    "url": "https://www.kita.net/board/notice/noticeDetail.do?postIndex=1874851",
    "image": "./images/kita-export-quiz.jpg",
    "icon": "./images/brands/kita.net.png",
-   "verified_at": "2026-11-22"
+   "verified_at": "2026-11-22",
+   "entry_easy": false
   },
   {
    "id": "lotto-idea-survey",
@@ -1060,7 +1112,8 @@
    "url": "https://modu.go.kr/front/qustnrNew/qustnrNewFrontView.do?menu_id=421&qustnr_id=a6be100d571d48d28649fe3d64b1772d",
    "image": "./images/lotto-idea-cu-coupon.jpg",
    "icon": "./images/brands/modu.go.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "maritime-pnt-survey",
@@ -1080,7 +1133,8 @@
    "url": "https://modu.go.kr/front/qustnrNew/qustnrNewFrontView.do?qustnr_id=f0f1dcabafe64f769422422efdba302d",
    "image": "./images/maritime-pnt-survey.jpg",
    "icon": "./images/brands/modu.go.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "ggtour-survey-2026",
@@ -1100,7 +1154,8 @@
    "url": "https://ggtour.or.kr/information/event/64383c1d-f83a-4984-bcf1-1a3b5d0cbbcd",
    "image": "./images/ggtour-survey.jpg",
    "icon": "./images/brands/ggtour.or.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   },
   {
    "id": "nps-survey-2026",
@@ -1120,7 +1175,8 @@
    "url": "https://www.nps.or.kr/pnsgdnc/newgdnc/getOHAE0001M1.do?menuId=MN24000897&pstId=ZZ202600000000001262&hmpgCd=01&hmpgBbsCd=BS20240137&sortSe=FR&pageIndex=1&searchText=&searchGbu=",
    "image": "./images/nps-survey-earbuds.jpg",
    "icon": "./images/brands/nps.or.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   },
   {
    "id": "nhis-nursing-ox-quiz",
@@ -1140,7 +1196,8 @@
    "url": "https://www.nhis.or.kr/nhis/etc/20261104_banner_pop01.do",
    "image": "./images/nhis-nursing-quiz.jpg",
    "icon": "./images/brands/nhis.or.kr.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": true
   },
   {
    "id": "channel-cafe-coffee",
@@ -1160,7 +1217,8 @@
    "url": "https://event.channel.io/cafe2026/",
    "image": "./images/channel-cafe-coffee.jpg",
    "icon": "./images/brands/channel.io.png",
-   "verified_at": "2026-11-23"
+   "verified_at": "2026-11-23",
+   "entry_easy": false
   }
  ]
 }
