@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>무료응모 헌터</title>
-<meta name="description" content="구매 없이 참여하는 1,000원 이상 무료 응모·혜택만 모아둔 개인용 큐레이션">
+<title>무료응모 헌터 · AI 콘테스트 · 지원금</title>
+<meta name="description" content="구매 없이 참여하는 무료응모, 접수 중인 AI 콘테스트·경진대회, 받을 수 있는 지원금·AI 혜택을 한곳에 모은 개인용 큐레이션">
 <link rel="icon" href="./images/avatar.png">
 <style>
   :root {
@@ -58,6 +58,7 @@
   }
   a { color: inherit; }
   .wrap { width: 100%; max-width: 560px; margin: 0 auto; padding: 0 20px; }
+  [hidden] { display: none !important; }
 
   /* ---------- header ---------- */
   .site-head { padding: 30px 0 0; }
@@ -94,6 +95,57 @@
   .theme-btn:hover { color: var(--ink); background: var(--chip); }
   .theme-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .theme-btn svg { width: 17px; height: 17px; display: block; }
+
+  /* ---------- top tabs ---------- */
+  .tabs {
+    display: flex; gap: 4px;
+    margin-top: 16px;
+    padding: 3px;
+    background: var(--chip);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .tab {
+    flex: 1 1 0; min-width: 0;
+    display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+    font: inherit; font-size: 12px; font-weight: 700;
+    letter-spacing: -.03em;
+    color: var(--dim);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 7px 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .12s, background .12s, border-color .12s;
+  }
+  .tab .t-ico { font-size: 13px; line-height: 1; flex: none; }
+  .tab .t-label { overflow: hidden; text-overflow: ellipsis; }
+  .tab .t-c {
+    flex: none;
+    font-size: 9.5px; font-weight: 700; line-height: 1.6;
+    min-width: 14px; padding: 0 3px;
+    border-radius: 999px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: var(--dim);
+    background: var(--bg);
+  }
+  @media (max-width: 430px) {
+    .tabs { margin-left: -7px; margin-right: -7px; }
+    .tab { font-size: 10.8px; padding: 7px 2px; gap: 3px; letter-spacing: -.045em; }
+    .tab .t-ico { font-size: 11.5px; }
+    .tab .t-c { font-size: 9px; min-width: 13px; padding: 0 3px; }
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] {
+    color: var(--ink);
+    background: var(--bg);
+    border-color: var(--line);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  .tab[aria-selected="true"] .t-c { color: var(--bg); background: var(--ink); }
+  .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
   /* ---------- toolbar ---------- */
   .toolbar {
@@ -150,15 +202,16 @@
   }
   .chip.pz[aria-pressed="true"] .pz-c { color: var(--bg); background: var(--ink); }
   .chip.pz[aria-pressed="true"] .pz-ico { opacity: 1; }
-  #enteredOnly .pz-c {
+  #enteredOnly .pz-c, #contestsChecked .pz-c, #benefitsChecked .pz-c {
     font-size: 10px; font-weight: 700; line-height: 1.5;
     min-width: 16px; padding: 0 4px; border-radius: 999px; text-align: center;
     font-variant-numeric: tabular-nums; color: var(--dim); background: var(--chip);
   }
-  #enteredOnly[aria-pressed="true"] {
+  #enteredOnly[aria-pressed="true"], #contestsChecked[aria-pressed="true"], #benefitsChecked[aria-pressed="true"] {
     color: var(--ok); border-color: var(--ok); background: var(--ok-soft); font-weight: 700;
   }
-  #enteredOnly[aria-pressed="true"] .pz-c { color: var(--bg); background: var(--ok); }
+  #enteredOnly[aria-pressed="true"] .pz-c, #contestsChecked[aria-pressed="true"] .pz-c,
+  #benefitsChecked[aria-pressed="true"] .pz-c { color: var(--bg); background: var(--ok); }
   @media (max-width: 600px) {
     .prizerow, .chiprow {
       flex-wrap: nowrap;
@@ -197,6 +250,14 @@
   }
   .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .chip.sort[aria-pressed="true"] { border-color: transparent; color: var(--ink); font-weight: 600; }
+  .chip .c-cnt {
+    font-size: 10px; font-weight: 700; line-height: 1.5;
+    min-width: 16px; padding: 0 4px; margin-left: 3px;
+    border-radius: 999px; text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: var(--dim); background: var(--chip);
+  }
+  .chip[aria-pressed="true"] .c-cnt { color: var(--bg); background: var(--ink); }
 
   /* ---------- list head ---------- */
   .list-head {
@@ -413,7 +474,7 @@
   @keyframes sk { to { background-position: -200% 0; } }
   @media (prefers-reduced-motion: reduce) {
     .skeleton::after { animation: none; }
-    .chip, .title { transition: none; }
+    .chip, .title, .tab { transition: none; }
   }
 
   footer {
@@ -436,7 +497,7 @@
       <img class="avatar" src="./images/avatar.png" alt="무료응모 헌터 캐릭터" width="46" height="46">
       <div class="brand-text">
         <h1>무료응모 헌터</h1>
-        <p class="tagline">구매 없이 참여하는 1,000원 이상 무료응모·혜택</p>
+        <p class="tagline">무료응모 · AI 콘테스트 · 지원금 한곳에</p>
       </div>
       <button id="themeBtn" class="theme-btn" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -444,6 +505,17 @@
         </svg>
       </button>
     </div>
+    <nav class="tabs" role="tablist" aria-label="보기 전환">
+      <button class="tab" type="button" role="tab" id="tabEvents" data-tab="events" aria-selected="true" aria-controls="panel">
+        <span class="t-ico" aria-hidden="true">🎯</span><span class="t-label">무료응모</span><span class="t-c" id="countEvents">–</span>
+      </button>
+      <button class="tab" type="button" role="tab" id="tabContests" data-tab="contests" aria-selected="false" aria-controls="panel">
+        <span class="t-ico" aria-hidden="true">🤖</span><span class="t-label">AI 콘테스트</span><span class="t-c" id="countContests">–</span>
+      </button>
+      <button class="tab" type="button" role="tab" id="tabBenefits" data-tab="benefits" aria-selected="false" aria-controls="panel" title="지원금·AI혜택">
+        <span class="t-ico" aria-hidden="true">💰</span><span class="t-label">지원금·AI혜택</span><span class="t-c" id="countBenefits">–</span>
+      </button>
+    </nav>
   </div>
 </header>
 
@@ -455,6 +527,8 @@
       </svg>
       <input id="q" type="search" placeholder="브랜드·경품 검색 (갤럭시, 상품권, 사전예약)" autocomplete="off" aria-label="검색">
     </label>
+
+    <!-- 무료응모 필터 -->
     <div class="prizerow" id="prizeRow" role="group" aria-label="경품별 분류"></div>
     <div class="chiprow" id="catRow" role="group" aria-label="참여 방식·조건 필터">
       <button class="chip" type="button" id="enteredOnly" aria-pressed="false"
@@ -470,6 +544,38 @@
       <button class="chip" type="button" id="anyOnly" aria-pressed="false"
         title="지역·나이·특정 대상 제한이 있는 응모는 숨깁니다">누구나 가능</button>
     </div>
+
+    <!-- AI 콘테스트 필터 -->
+    <div class="chiprow" id="contestRow" role="group" aria-label="AI 콘테스트 분야·조건 필터" hidden>
+      <button class="chip" type="button" id="contestsChecked" aria-pressed="false"
+        title="내가 지원 완료로 체크한 대회만 모아 봅니다">✅ 내가 지원한 것 <span class="pz-c" id="contestsCheckedCount">0</span></button>
+      <button class="chip" type="button" id="contestsHideDone" aria-pressed="false"
+        title="이미 지원한 대회는 숨깁니다">미지원만</button>
+      <span class="sortsep" aria-hidden="true"></span>
+      <button class="chip" type="button" data-field="all" aria-pressed="true">분야 전체</button>
+      <button class="chip" type="button" data-field="dev" aria-pressed="false">💻 개발·데이터</button>
+      <button class="chip" type="button" data-field="creative" aria-pressed="false">🎨 콘텐츠·창작</button>
+      <button class="chip" type="button" data-field="idea" aria-pressed="false">💡 아이디어·해커톤</button>
+      <button class="chip" type="button" id="contestsAnyOnly" aria-pressed="false"
+        title="참가 자격 제한이 있는 대회는 숨깁니다">누구나 가능</button>
+    </div>
+
+    <!-- 지원금·AI혜택 필터 -->
+    <div class="chiprow" id="benefitRow" role="group" aria-label="지원금·혜택 분야·조건 필터" hidden>
+      <button class="chip" type="button" id="benefitsChecked" aria-pressed="false"
+        title="내가 신청·확인 완료로 체크한 혜택만 모아 봅니다">✓ 확인한 것 <span class="pz-c" id="benefitsCheckedCount">0</span></button>
+      <button class="chip" type="button" id="benefitsHideDone" aria-pressed="false"
+        title="이미 확인한 혜택은 숨깁니다">미확인만</button>
+      <span class="sortsep" aria-hidden="true"></span>
+      <button class="chip" type="button" data-bcat="all" aria-pressed="true">분야 전체</button>
+      <button class="chip" type="button" data-bcat="subsidy" aria-pressed="false">🏛️ 지원금·주거</button>
+      <button class="chip" type="button" data-bcat="tax" aria-pressed="false">🧾 세금·환급</button>
+      <button class="chip" type="button" data-bcat="ai" aria-pressed="false">🤖 AI 혜택·교육</button>
+      <button class="chip" type="button" data-bcat="life" aria-pressed="false">🚇 교통·생활</button>
+      <button class="chip" type="button" id="benefitsAnyOnly" aria-pressed="false"
+        title="대상·소득 조건이 있는 혜택은 숨깁니다">누구나 가능</button>
+    </div>
+
     <div class="sortrow">
       <span class="sortgroup">
         <span class="sortlabel" aria-hidden="true">정렬</span>
@@ -480,21 +586,21 @@
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="panel" role="tabpanel" aria-labelledby="tabEvents">
   <div class="list-head">
     <h2><span id="listTitle">진행 중인 혜택</span> <span class="num" id="countNow">(–)</span></h2>
     <span class="stamp" id="updated">– 확인</span>
   </div>
 
-  <section id="list" class="feed" aria-live="polite" aria-label="무료 응모 목록"></section>
+  <section id="list" class="feed" aria-live="polite" aria-label="목록"></section>
   <p id="empty" class="empty" hidden>조건에 맞는 응모가 없습니다. 검색어나 필터를 바꿔 보세요.</p>
   <p id="error" class="empty" hidden>데이터를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.</p>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>모든 항목은 공식 페이지를 직접 열어 마감 전임을 확인한 것만 실었습니다. 응모 전 마감일·조건은 공식 페이지에서 한 번 더 확인하세요.</p>
-    <p>응모 완료 <b id="countDone">0</b>건 · 응모 기록은 이 브라우저(localStorage)에만 저장됩니다.</p>
+    <p id="footNote">모든 항목은 공식 페이지를 직접 열어 마감 전임을 확인한 것만 실었습니다. 응모 전 마감일·조건은 공식 페이지에서 한 번 더 확인하세요.</p>
+    <p><span id="footCountLabel">응모 완료</span> <b id="countDone">0</b>건 · 체크 기록은 이 브라우저(localStorage)에만 저장됩니다.</p>
   </div>
 </footer>
 
@@ -505,12 +611,23 @@
   /* localStorage keys ---------------------------------------------------- */
   var LS_ENTERED = "dealer_deal_entered_v1";   /* { id: ISO 응모 시각 } */
   var LS_ENTERED_OLD = "dealHunter.done.v1";   /* 예전 true/false 기록 (자동 이전) */
+  var LS_CONTEST_CHECKED = "dealer_deal_contests_checked_v1";
+  var LS_BENEFIT_CHECKED = "dealer_deal_benefits_checked_v1";
   var LS_PRIZE = "dealer_deal_prize_cat_v1";
   var LS_THEME = "dealHunter.theme.v1";
   var LS_CAT = "dealHunter.cat.v1";
   var LS_SORT = "dealHunter.sort.v1";
   var LS_HIDE = "dealHunter.hideDone.v1";
   var LS_ANY = "dealHunter.anyOnly.v1";
+  var LS_TAB = "dealer_deal_tab_v1";
+  var LS_C_FIELD = "dealer_deal_contest_field_v1";
+  var LS_C_SORT = "dealer_deal_contest_sort_v1";
+  var LS_C_ANY = "dealer_deal_contest_any_v1";
+  var LS_C_HIDE = "dealer_deal_contest_hide_v1";
+  var LS_B_CAT = "dealer_deal_benefit_cat_v1";
+  var LS_B_SORT = "dealer_deal_benefit_sort_v1";
+  var LS_B_ANY = "dealer_deal_benefit_any_v1";
+  var LS_B_HIDE = "dealer_deal_benefit_hide_v1";
 
   /* 경품별 분류 ----------------------------------------------------------- */
   var PRIZE = [
@@ -538,18 +655,50 @@
     etc: /피규어|굿즈|키트|초대권|영양제|세트|공연|티켓|관람|드라이룸/
   };
 
+  var FIELDS = [
+    { key: "all", label: "분야 전체", icon: "" },
+    { key: "dev", label: "개발·데이터", icon: "💻" },
+    { key: "creative", label: "콘텐츠·창작", icon: "🎨" },
+    { key: "idea", label: "아이디어·해커톤", icon: "💡" }
+  ];
+  var FIELD_LABEL = { dev: "💻 개발·데이터", creative: "🎨 콘텐츠·창작", idea: "💡 아이디어·해커톤" };
+  var FIELD_PLAIN = { dev: "개발·데이터", creative: "콘텐츠·창작", idea: "아이디어·해커톤" };
+  var FIELD_ALIAS = {
+    dev: "dev", data: "dev", develop: "dev", development: "dev", coding: "dev", "개발": "dev", "데이터": "dev",
+    creative: "creative", content: "creative", video: "creative", image: "creative", music: "creative", design: "creative",
+    "창작": "creative", "콘텐츠": "creative",
+    idea: "idea", hackathon: "idea", ideathon: "idea", "아이디어": "idea", "해커톤": "idea"
+  };
+
+  var BCATS = [
+    { key: "all", label: "분야 전체", icon: "" },
+    { key: "subsidy", label: "지원금·주거", icon: "🏛️" },
+    { key: "tax", label: "세금·환급", icon: "🧾" },
+    { key: "ai", label: "AI 혜택·교육", icon: "🤖" },
+    { key: "life", label: "교통·생활", icon: "🚇" }
+  ];
+  var BCAT_LABEL = { subsidy: "🏛️ 지원금·주거", tax: "🧾 세금·환급", ai: "🤖 AI 혜택·교육", life: "🚇 교통·생활" };
+  var BCAT_PLAIN = { subsidy: "지원금·주거", tax: "세금·환급", ai: "AI 혜택·교육", life: "교통·생활" };
+  var BCAT_ALIAS = {
+    subsidy: "subsidy", grant: "subsidy", housing: "subsidy", support: "subsidy",
+    tax: "tax", refund: "tax", deduction: "tax",
+    ai: "ai", credit: "ai", edu: "ai", education: "ai", training: "ai",
+    life: "life", transport: "life", living: "life", health: "life"
+  };
+
   var state = {
-    events: [],
-    loaded: false,
-    q: "",
-    cat: "all",
-    prize: "all",
-    sort: "deadline",
-    hideDone: false,
-    anyOnly: false,
-    enteredOnly: false,
+    tab: "events",
+    q: { events: "", contests: "", benefits: "" },
+    data: { events: [], contests: [], benefits: [] },
+    loaded: { events: false, contests: false, benefits: false },
+    failed: { events: false, contests: false, benefits: false },
+    updated: { events: "", contests: "", benefits: "" },
     entered: {},
-    open: {}
+    checked: { contests: {}, benefits: {} },
+    open: {},
+    events: { cat: "all", prize: "all", sort: "deadline", hideDone: false, anyOnly: false, enteredOnly: false },
+    contests: { field: "all", sort: "deadline", hideDone: false, anyOnly: false, checkedOnly: false },
+    benefits: { cat: "all", sort: "deadline", hideDone: false, anyOnly: false, checkedOnly: false }
   };
 
   function readJSON(key, fallback) {
@@ -580,7 +729,7 @@
   }
   function deadlineLabel(ev) {
     var d = parseDate(ev.deadline);
-    if (!d) return "상시 진행";
+    if (!d) return "상시";
     return (d.getMonth() + 1) + "월 " + d.getDate() + "일 마감";
   }
   function ddayLabel(ev) {
@@ -606,10 +755,10 @@
     if (p.length !== 3) return label;
     return +p[1] + ". " + +p[2] + ". 확인";
   }
-  function whenLabel(iso) {
+  function whenLabel(iso, word) {
     var d = new Date(iso);
     if (!iso || isNaN(d.getTime())) return "";
-    return (d.getMonth() + 1) + "." + d.getDate() + " 응모";
+    return (d.getMonth() + 1) + "." + d.getDate() + " " + (word || "");
   }
 
   /* ---------- 경품 분류 ---------- */
@@ -637,47 +786,93 @@
     if (PRIZE_ORDER.indexOf(c) !== -1) return c;
     return inferPrize(ev);
   }
+  function fieldOf(ev) {
+    var c = String(ev.field || "").toLowerCase().trim();
+    c = FIELD_ALIAS[c] || c;
+    return FIELD_LABEL[c] ? c : "idea";
+  }
+  function bcatOf(ev) {
+    var c = String(ev.benefit_category || "").toLowerCase().trim();
+    c = BCAT_ALIAS[c] || c;
+    return BCAT_LABEL[c] ? c : "life";
+  }
+
+  /* ---------- tab config ---------- */
+  function cfg(kind) {
+    return {
+      events: { st: state.events, checked: state.entered, live: "진행 중인 혜택", mine: "내가 응모한 것",
+                emptyMine: "아직 응모 완료로 체크한 응모가 없습니다. 카드 오른쪽 아래 ‘응모 체크’를 누르면 여기에 모입니다.",
+                emptyMineFiltered: "응모한 것 중에는 지금 조건에 맞는 항목이 없습니다. 검색어나 필터를 바꿔 보세요.",
+                emptyHide: "미응모 항목이 없습니다. ‘미응모만’을 끄면 응모한 것까지 보입니다.",
+                empty: "조건에 맞는 응모가 없습니다. 검색어나 필터를 바꿔 보세요.",
+                search: "브랜드·경품 검색 (갤럭시, 상품권, 사전예약)",
+                note: "모든 항목은 공식 페이지를 직접 열어 마감 전임을 확인한 것만 실었습니다. 응모 전 마감일·조건은 공식 페이지에서 한 번 더 확인하세요.",
+                cond: "참여 조건", countLabel: "응모 완료", checkWord: "응모", go: "공식 페이지에서 참여" },
+      contests: { st: state.contests, checked: state.checked.contests, live: "접수 중인 AI 콘테스트", mine: "내가 지원한 대회", cond: "대회 상세",
+                emptyMine: "아직 지원 완료로 체크한 대회가 없습니다. 카드 오른쪽 아래 ‘지원 체크’를 누르면 여기에 모입니다.",
+                emptyMineFiltered: "지원한 대회 중에는 지금 조건에 맞는 항목이 없습니다. 검색어나 필터를 바꿔 보세요.",
+                emptyHide: "미지원 대회가 없습니다. ‘미지원만’을 끄면 지원한 것까지 보입니다.",
+                empty: "조건에 맞는 대회가 없습니다. 검색어나 필터를 바꿔 보세요.",
+                search: "대회·주최·상금 검색 (데이콘, 영상, 해커톤)",
+                note: "모든 대회는 공식 대회 페이지를 직접 열어 접수 중임을 확인한 것만 실었습니다. 참가 전 마감 시각·참가 자격·제출물은 공식 페이지에서 확인하세요.",
+                countLabel: "지원 체크", checkWord: "지원", go: "공식 페이지에서 지원" },
+      benefits: { st: state.benefits, checked: state.checked.benefits, live: "받을 수 있는 혜택", mine: "내가 확인한 혜택", cond: "신청 조건",
+                emptyMine: "아직 확인 완료로 체크한 혜택이 없습니다. 카드 오른쪽 아래 ‘확인 체크’를 누르면 여기에 모입니다.",
+                emptyMineFiltered: "확인한 혜택 중에는 지금 조건에 맞는 항목이 없습니다. 검색어나 필터를 바꿔 보세요.",
+                emptyHide: "미확인 혜택이 없습니다. ‘미확인만’을 끄면 확인한 것까지 보입니다.",
+                empty: "조건에 맞는 혜택이 없습니다. 검색어나 필터를 바꿔 보세요.",
+                search: "혜택·기관 검색 (월세, 크레딧, 검진)",
+                note: "모든 혜택은 공식 안내 페이지를 직접 열어 조건·금액을 확인한 것만 실었습니다. 개인별 적용 여부는 소득·재직·주택 상황에 따라 다르니 신청 전 공식 안내를 다시 확인하세요.",
+                countLabel: "확인 체크", checkWord: "확인", go: "신청·안내 페이지" }
+    }[kind];
+  }
 
   /* ---------- filtering ---------- */
+  function isChecked(kind, ev) {
+    return kind === "events" ? !!state.entered[ev.id] : !!state.checked[kind][ev.id];
+  }
   function categoryMatch(ev) {
-    if (state.cat === "all") return true;
-    if (state.cat === "official") return ev.category === "official" || ev.category === "form";
-    return ev.category === state.cat;
+    if (state.events.cat === "all") return true;
+    if (state.events.cat === "official") return ev.category === "official" || ev.category === "form";
+    return ev.category === state.events.cat;
   }
-  function searchMatch(ev) {
-    if (!state.q) return true;
-    var hay = [ev.brand, ev.title, ev.event_name, ev.channel, ev.value_note, ev.summary,
-      ev.conditions, ev.category, ev.restriction].join(" ").toLowerCase();
-    return state.q.toLowerCase().split(/\s+/).filter(Boolean).every(function (t) {
-      return hay.indexOf(t) !== -1;
-    });
+  function matches(kind, ev) {
+    var c = cfg(kind);
+    if (kind === "events") {
+      if (!categoryMatch(ev)) return false;
+      if (!(state.events.prize === "all" || prizeOf(ev) === state.events.prize)) return false;
+    } else if (kind === "contests") {
+      if (!(c.st.field === "all" || fieldOf(ev) === c.st.field)) return false;
+    } else {
+      if (!(c.st.cat === "all" || bcatOf(ev) === c.st.cat)) return false;
+    }
+    var q = state.q[kind];
+    if (q) {
+      var hay = [ev.brand, ev.title, ev.event_name, ev.channel, ev.value_note, ev.prize_note,
+        ev.summary, ev.conditions, ev.category, ev.field, ev.benefit_category, ev.restriction]
+        .join(" ").toLowerCase();
+      var ok = q.toLowerCase().split(/\s+/).filter(Boolean).every(function (t) { return hay.indexOf(t) !== -1; });
+      if (!ok) return false;
+    }
+    if (c.st.anyOnly && ev.restriction) return false;
+    var on = kind === "events" ? c.st.enteredOnly : c.st.checkedOnly;
+    if (on && !isChecked(kind, ev)) return false;
+    if (c.st.hideDone && isChecked(kind, ev)) return false;
+    return true;
   }
-  function prizeMatch(ev) {
-    return state.prize === "all" || prizeOf(ev) === state.prize;
-  }
-  function liveEvents() {
-    return state.events.filter(function (ev) {
+  function liveEvents(kind) {
+    return state.data[kind].filter(function (ev) {
       var d = daysLeft(ev);
       return !(d !== null && d < 0);
     });
   }
-  function enteredLiveCount() {
-    return liveEvents().filter(function (ev) { return !!state.entered[ev.id]; }).length;
+  function checkedLiveCount(kind) {
+    return liveEvents(kind).filter(function (ev) { return isChecked(kind, ev); }).length;
   }
-  function visibleEvents() {
-    var list = state.events.filter(function (ev) {
-      var d = daysLeft(ev);
-      if (d !== null && d < 0) return false;
-      if (!categoryMatch(ev)) return false;
-      if (!searchMatch(ev)) return false;
-      if (!prizeMatch(ev)) return false;
-      if (state.anyOnly && ev.restriction) return false;
-      if (state.enteredOnly && !state.entered[ev.id]) return false;
-      if (state.hideDone && state.entered[ev.id]) return false;
-      return true;
-    });
+  function visibleEvents(kind) {
+    var list = liveEvents(kind).filter(function (ev) { return matches(kind, ev); });
     list.sort(function (a, b) {
-      if (state.sort === "new") {
+      if (cfg(kind).st.sort === "new") {
         return String(b.start || b.verified_at || "").localeCompare(String(a.start || a.verified_at || ""));
       }
       var da = daysLeft(a), db = daysLeft(b);
@@ -687,20 +882,27 @@
     });
     return list;
   }
-  /* 경품 칩 개수: 마감 전 + 검색어 + 참여방식 + 제한 + 응모 상태 필터 기준(경품 칩 자신은 제외) */
-  function prizeCounts() {
+  /* 칩 개수: 마감 전 + 검색어 + 다른 필터 기준(자기 칩은 제외) */
+  function chipCounts(kind) {
     var counts = { all: 0 };
-    PRIZE_ORDER.forEach(function (k) { counts[k] = 0; });
-    liveEvents().forEach(function (ev) {
-      if (!categoryMatch(ev)) return;
-      if (!searchMatch(ev)) return;
-      if (state.anyOnly && ev.restriction) return;
-      if (state.enteredOnly && !state.entered[ev.id]) return;
-      if (state.hideDone && state.entered[ev.id]) return;
+    var keys = kind === "events" ? PRIZE_ORDER : kind === "contests" ? ["dev", "creative", "idea"] : ["subsidy", "tax", "ai", "life"];
+    keys.forEach(function (k) { counts[k] = 0; });
+    var c = cfg(kind);
+    var saved = kind === "events" ? c.st.prize : kind === "contests" ? c.st.field : c.st.cat;
+    var savedQ = state.q[kind];
+    liveEvents(kind).forEach(function (ev) {
+      if (kind === "events") c.st.prize = "all";
+      else if (kind === "contests") c.st.field = "all";
+      else c.st.cat = "all";
+      state.q[kind] = savedQ;
+      if (!matches(kind, ev)) return;
       counts.all++;
-      var k = prizeOf(ev);
+      var k = kind === "events" ? prizeOf(ev) : kind === "contests" ? fieldOf(ev) : bcatOf(ev);
       counts[k] = (counts[k] || 0) + 1;
     });
+    if (kind === "events") c.st.prize = saved;
+    else if (kind === "contests") c.st.field = saved;
+    else c.st.cat = saved;
     return counts;
   }
 
@@ -712,9 +914,16 @@
     return n;
   }
 
-  function metaLine(ev) {
+  function metaLine(kind, ev) {
     var p = el("p", "meta");
-    var parts = [kindLabel(ev), deadlineLabel(ev)];
+    var parts;
+    if (kind === "events") {
+      parts = [kindLabel(ev), deadlineLabel(ev)];
+    } else if (kind === "contests") {
+      parts = [FIELD_PLAIN[fieldOf(ev)], deadlineLabel(ev)];
+    } else {
+      parts = [BCAT_PLAIN[bcatOf(ev)], deadlineLabel(ev)];
+    }
     var dd = ddayLabel(ev);
     if (dd) parts.push(dd);
     parts.forEach(function (t, i) {
@@ -729,31 +938,37 @@
     var p = el("p", "restrictline");
     var tag = el("span", "restrict");
     tag.setAttribute("data-restriction", ev.restriction);
-    tag.title = "참여 제한: " + ev.restriction;
+    tag.title = "참여 조건: " + ev.restriction;
     tag.appendChild(el("span", "rk", "대상"));
     tag.appendChild(el("span", "rv", ev.restriction));
     p.appendChild(tag);
     return p;
   }
 
-  function row(ev) {
-    var enteredIso = state.entered[ev.id] || "";
-    var isEntered = !!enteredIso;
-    var art = el("article", "row" + (isEntered ? " entered" : ""));
+  function row(kind, ev) {
+    var c = cfg(kind);
+    var checkedIso = (kind === "events" ? state.entered[ev.id] : state.checked[kind][ev.id]) || "";
+    var isDone = !!checkedIso;
+    var art = el("article", "row" + (isDone ? " entered" : ""));
     art.setAttribute("data-id", ev.id);
-    art.setAttribute("data-prize", prizeOf(ev));
+    art.setAttribute("data-kind", kind);
+    if (kind === "events") art.setAttribute("data-prize", prizeOf(ev));
+    if (kind === "contests") art.setAttribute("data-field", fieldOf(ev));
+    if (kind === "benefits") art.setAttribute("data-bcat", bcatOf(ev));
 
     var top = el("div", "row-top");
     var text = el("div", "row-text");
 
     var brandline = el("div", "brandline");
-    var icon = document.createElement("img");
-    icon.className = "favicon";
-    icon.src = ev.icon || "./images/avatar.png";
-    icon.alt = "";
-    icon.width = 14; icon.height = 14;
-    icon.loading = "eager";
-    brandline.appendChild(icon);
+    if (ev.icon) {
+      var icon = document.createElement("img");
+      icon.className = "favicon";
+      icon.src = ev.icon;
+      icon.alt = "";
+      icon.width = 14; icon.height = 14;
+      icon.loading = "eager";
+      brandline.appendChild(icon);
+    }
     brandline.appendChild(el("span", "brand", ev.brand));
     var chan = channelLabel(ev);
     if (chan) {
@@ -764,7 +979,7 @@
     text.appendChild(brandline);
 
     text.appendChild(el("h3", "title", ev.title));
-    text.appendChild(metaLine(ev));
+    text.appendChild(metaLine(kind, ev));
     var restriction = restrictionLine(ev);
     if (restriction) text.appendChild(restriction);
     top.appendChild(text);
@@ -772,82 +987,90 @@
     var thumb = el("div", "thumb");
     var im = document.createElement("img");
     im.src = ev.image;
-    im.alt = ev.brand + " " + ev.title + " 경품 이미지";
+    im.alt = ev.brand + " " + ev.title + " 이미지";
     im.width = 84; im.height = 84;
     im.loading = "eager";
     im.decoding = "async";
     thumb.appendChild(im);
     var badge = el("span", "enter-badge", "✓");
     badge.setAttribute("aria-hidden", "true");
-    badge.title = "응모 완료" + (isEntered ? " · " + whenLabel(enteredIso) : "");
-    badge.hidden = !isEntered;
+    badge.title = c.countLabel + (isDone ? " · " + whenLabel(checkedIso, c.checkWord) : "");
+    badge.hidden = !isDone;
     thumb.appendChild(badge);
     top.appendChild(thumb);
     art.appendChild(top);
 
     art.appendChild(el("p", "how", ev.summary));
 
-    var condOpen = !!state.open[ev.id];
+    var condOpen = !!state.open[kind + ":" + ev.id];
+    var condLabel = c.cond || "상세 조건";
     var condBtn = el("button", "cond-toggle");
     condBtn.type = "button";
     condBtn.setAttribute("aria-expanded", String(condOpen));
-    condBtn.innerHTML = '참여 조건 <span class="plus" aria-hidden="true">' + (condOpen ? "−" : "+") + "</span>";
+    condBtn.innerHTML = condLabel + ' <span class="plus" aria-hidden="true">' + (condOpen ? "−" : "+") + "</span>";
     var condBody = el("p", "cond-body", ev.conditions || "");
     condBody.hidden = !condOpen;
-    condBody.id = "cond-" + ev.id;
+    condBody.id = "cond-" + kind + "-" + ev.id;
     condBtn.setAttribute("aria-controls", condBody.id);
     condBtn.addEventListener("click", function () {
       var open = condBtn.getAttribute("aria-expanded") === "true";
-      state.open[ev.id] = !open;
+      state.open[kind + ":" + ev.id] = !open;
       condBtn.setAttribute("aria-expanded", String(!open));
-      condBtn.innerHTML = '참여 조건 <span class="plus" aria-hidden="true">' + (open ? "+" : "−") + "</span>";
+      condBtn.innerHTML = condLabel + ' <span class="plus" aria-hidden="true">' + (open ? "+" : "−") + "</span>";
       condBody.hidden = open;
     });
     art.appendChild(condBtn);
     art.appendChild(condBody);
 
     var foot = el("div", "row-foot");
-    var go = el("a", "go", "공식 페이지에서 참여");
+    var go = el("a", "go", c.go);
     go.href = ev.url;
     go.target = "_blank";
     go.rel = "noopener noreferrer";
-    go.setAttribute("aria-label", ev.title + " 공식 페이지에서 참여");
+    go.setAttribute("aria-label", ev.title + " " + c.go);
     var ext = el("span", "ext", "↗");
     ext.setAttribute("aria-hidden", "true");
     go.appendChild(ext);
     foot.appendChild(go);
 
     var wrap = el("div", "enter-wrap");
-    var when = el("span", "enter-when", isEntered ? whenLabel(enteredIso) : "");
-    when.hidden = !isEntered;
+    var when = el("span", "enter-when", isDone ? whenLabel(checkedIso, c.checkWord) : "");
+    when.hidden = !isDone;
     wrap.appendChild(when);
 
     var doneBtn = el("button", "done-toggle");
     doneBtn.type = "button";
-    doneBtn.setAttribute("aria-pressed", String(isEntered));
-    doneBtn.setAttribute("aria-label", ev.title + (isEntered ? " 응모 완료 취소" : " 응모 완료로 체크"));
-    if (isEntered) doneBtn.title = whenLabel(enteredIso) + " · 누르면 취소";
+    doneBtn.setAttribute("aria-pressed", String(isDone));
+    var labelOff = kind === "events" ? "응모 체크" : kind === "contests" ? "지원 체크" : "확인 체크";
+    var labelOn = kind === "events" ? "응모 완료" : kind === "contests" ? "지원 완료" : "확인함";
+    var ariaOn = kind === "events" ? " 응모 완료 취소" : kind === "contests" ? " 지원 완료 취소" : " 확인 완료 취소";
+    var ariaOff = kind === "events" ? " 응모 완료로 체크" : kind === "contests" ? " 지원 완료로 체크" : " 확인 완료로 체크";
+    doneBtn.setAttribute("aria-label", ev.title + (isDone ? ariaOn : ariaOff));
+    if (isDone) doneBtn.title = whenLabel(checkedIso, c.checkWord) + " · 누르면 취소";
     doneBtn.appendChild(el("span", "dot"));
     doneBtn.querySelector(".dot").setAttribute("aria-hidden", "true");
     doneBtn.appendChild(el("span", "chk", "✓"));
     doneBtn.querySelector(".chk").setAttribute("aria-hidden", "true");
-    doneBtn.appendChild(el("span", "dt-label", isEntered ? "응모 완료" : "응모 체크"));
+    doneBtn.appendChild(el("span", "dt-label", isDone ? labelOn : labelOff));
     doneBtn.addEventListener("click", function () {
       var next = doneBtn.getAttribute("aria-pressed") !== "true";
-      if (next) state.entered[ev.id] = new Date().toISOString();
-      else delete state.entered[ev.id];
-      writeJSON(LS_ENTERED, state.entered);
+      var store = kind === "events" ? state.entered : state.checked[kind];
+      if (next) store[ev.id] = new Date().toISOString();
+      else delete store[ev.id];
+      writeJSON(kind === "events" ? LS_ENTERED : kind === "contests" ? LS_CONTEST_CHECKED : LS_BENEFIT_CHECKED, store);
       doneBtn.setAttribute("aria-pressed", String(next));
-      doneBtn.setAttribute("aria-label", ev.title + (next ? " 응모 완료 취소" : " 응모 완료로 체크"));
-      doneBtn.querySelector(".dt-label").textContent = next ? "응모 완료" : "응모 체크";
+      doneBtn.setAttribute("aria-label", ev.title + (next ? ariaOn : ariaOff));
+      doneBtn.querySelector(".dt-label").textContent = next ? labelOn : labelOff;
       art.classList.toggle("entered", next);
       badge.hidden = !next;
       when.hidden = !next;
-      when.textContent = next ? whenLabel(state.entered[ev.id]) : "";
-      if (next) doneBtn.title = whenLabel(state.entered[ev.id]) + " · 누르면 취소";
+      when.textContent = next ? whenLabel(store[ev.id], c.checkWord) : "";
+      if (next) doneBtn.title = whenLabel(store[ev.id], c.checkWord) + " · 누르면 취소";
       else doneBtn.removeAttribute("title");
       syncChips();
-      if ((next && state.hideDone) || (!next && state.enteredOnly)) render();
+      var hideOn = c.st.hideDone;
+      var onlyOn = kind === "events" ? c.st.enteredOnly : c.st.checkedOnly;
+      if ((next && hideOn) || (!next && onlyOn)) render();
     });
     wrap.appendChild(doneBtn);
     foot.appendChild(wrap);
@@ -857,30 +1080,49 @@
   }
 
   function render() {
-    var list = visibleEvents();
+    var kind = state.tab;
+    var c = cfg(kind);
     var host = document.getElementById("list");
     host.textContent = "";
+    document.getElementById("countNow").textContent = "(–)";
+    document.getElementById("listTitle").textContent = c.live;
+    document.getElementById("updated").textContent = stampLabel(state.updated[kind] || "") || "– 확인";
+    var emptyEl = document.getElementById("empty");
+    var errorEl = document.getElementById("error");
+
+    if (state.failed[kind]) {
+      emptyEl.hidden = true;
+      errorEl.hidden = false;
+      syncChips();
+      return;
+    }
+    if (!state.loaded[kind]) {
+      for (var s = 0; s < 4; s++) host.appendChild(el("div", "skeleton"));
+      emptyEl.hidden = true;
+      errorEl.hidden = true;
+      syncChips();
+      return;
+    }
+    errorEl.hidden = true;
+
+    var list = visibleEvents(kind);
     var frag = document.createDocumentFragment();
-    list.forEach(function (ev) { frag.appendChild(row(ev)); });
+    list.forEach(function (ev) { frag.appendChild(row(kind, ev)); });
     host.appendChild(frag);
 
     document.getElementById("countNow").textContent = "(" + list.length + ")";
-    document.getElementById("listTitle").textContent = state.enteredOnly ? "내가 응모한 것" : "진행 중인 혜택";
+    var onlyOn = kind === "events" ? state.events.enteredOnly : c.st.checkedOnly;
+    document.getElementById("listTitle").textContent = onlyOn ? c.mine : c.live;
 
-    var emptyEl = document.getElementById("empty");
     if (list.length) {
       emptyEl.hidden = true;
     } else {
       var msg;
-      if (state.enteredOnly && enteredLiveCount() === 0) {
-        msg = "아직 응모 완료로 체크한 응모가 없습니다. 카드 오른쪽 아래 ‘응모 체크’를 누르면 여기에 모입니다.";
-      } else if (state.enteredOnly) {
-        msg = "응모한 것 중에는 지금 조건에 맞는 항목이 없습니다. 검색어나 필터를 바꿔 보세요.";
-      } else if (state.hideDone) {
-        msg = "미응모 항목이 없습니다. ‘미응모만’을 끄면 응모한 것까지 보입니다.";
-      } else {
-        msg = "조건에 맞는 응모가 없습니다. 검색어나 필터를 바꿔 보세요.";
-      }
+      if (!state.loaded[kind]) msg = "불러오는 중입니다…";
+      else if (onlyOn && checkedLiveCount(kind) === 0) msg = c.emptyMine;
+      else if (onlyOn) msg = c.emptyMineFiltered;
+      else if (c.st.hideDone) msg = c.emptyHide;
+      else msg = c.empty;
       emptyEl.textContent = msg;
       emptyEl.hidden = false;
     }
@@ -896,7 +1138,7 @@
       var b = el("button", "chip pz");
       b.type = "button";
       b.setAttribute("data-prize", p.key);
-      b.setAttribute("aria-pressed", String(state.prize === p.key));
+      b.setAttribute("aria-pressed", String(state.events.prize === p.key));
       if (p.icon) {
         var ic = el("span", "pz-ico", p.icon);
         ic.setAttribute("aria-hidden", "true");
@@ -910,60 +1152,127 @@
   }
 
   function syncChips() {
-    var counts = state.loaded ? prizeCounts() : null;
+    var kind = state.tab;
+    var counts = state.loaded[kind] ? chipCounts(kind) : null;
+
     [].forEach.call(document.querySelectorAll("#prizeRow .chip[data-prize]"), function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.prize === state.prize));
+      b.setAttribute("aria-pressed", String(b.dataset.prize === state.events.prize));
       var c = b.querySelector(".pz-c");
-      if (c) c.textContent = counts ? String(counts[b.dataset.prize] || 0) : "–";
+      if (c) c.textContent = (kind === "events" && counts) ? String(counts[b.dataset.prize] || 0) : "–";
     });
     [].forEach.call(document.querySelectorAll("#catRow .chip[data-cat]"), function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.cat === state.cat));
+      b.setAttribute("aria-pressed", String(b.dataset.cat === state.events.cat));
     });
-    [].forEach.call(document.querySelectorAll("#catRow .chip[data-sort]"), function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.sort === state.sort));
+    [].forEach.call(document.querySelectorAll("#contestRow .chip[data-field]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.field === state.contests.field));
     });
-    document.getElementById("anyOnly").setAttribute("aria-pressed", String(state.anyOnly));
-    document.getElementById("enteredOnly").setAttribute("aria-pressed", String(state.enteredOnly));
-    document.getElementById("hideDone").setAttribute("aria-pressed", String(state.hideDone));
-    var n = state.loaded ? String(enteredLiveCount()) : "–";
-    document.getElementById("enteredCount").textContent = n;
-    document.getElementById("countDone").textContent = state.loaded ? String(enteredLiveCount()) : "0";
+    [].forEach.call(document.querySelectorAll("#benefitRow .chip[data-bcat]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.bcat === state.benefits.cat));
+    });
+    [].forEach.call(document.querySelectorAll(".sortrow .chip[data-sort]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.sort === cfg(kind).st.sort));
+    });
+    document.getElementById("anyOnly").setAttribute("aria-pressed", String(state.events.anyOnly));
+    document.getElementById("enteredOnly").setAttribute("aria-pressed", String(state.events.enteredOnly));
+    document.getElementById("hideDone").setAttribute("aria-pressed", String(state.events.hideDone));
+    document.getElementById("contestsAnyOnly").setAttribute("aria-pressed", String(state.contests.anyOnly));
+    document.getElementById("contestsChecked").setAttribute("aria-pressed", String(state.contests.checkedOnly));
+    document.getElementById("contestsHideDone").setAttribute("aria-pressed", String(state.contests.hideDone));
+    document.getElementById("benefitsAnyOnly").setAttribute("aria-pressed", String(state.benefits.anyOnly));
+    document.getElementById("benefitsChecked").setAttribute("aria-pressed", String(state.benefits.checkedOnly));
+    document.getElementById("benefitsHideDone").setAttribute("aria-pressed", String(state.benefits.hideDone));
+
+    document.getElementById("enteredCount").textContent = state.loaded.events ? String(checkedLiveCount("events")) : "–";
+    document.getElementById("contestsCheckedCount").textContent = state.loaded.contests ? String(checkedLiveCount("contests")) : "–";
+    document.getElementById("benefitsCheckedCount").textContent = state.loaded.benefits ? String(checkedLiveCount("benefits")) : "–";
+
+    document.getElementById("countEvents").textContent = state.loaded.events ? String(liveEvents("events").length) : "–";
+    document.getElementById("countContests").textContent = state.loaded.contests ? String(liveEvents("contests").length) : "–";
+    document.getElementById("countBenefits").textContent = state.loaded.benefits ? String(liveEvents("benefits").length) : "–";
+
+    document.getElementById("countDone").textContent = state.loaded[kind] ? String(checkedLiveCount(kind)) : "0";
+    document.getElementById("footCountLabel").textContent = cfg(kind).countLabel;
   }
 
   /* ---------- controls ---------- */
   function setPrize(key) {
     if (key !== "all" && PRIZE_ORDER.indexOf(key) === -1) key = "all";
-    state.prize = key;
+    state.events.prize = key;
     writeJSON(LS_PRIZE, key);
     render();
   }
   function setCat(cat) {
-    state.cat = cat;
+    state.events.cat = cat;
     writeJSON(LS_CAT, cat);
     render();
   }
   function setSort(sort) {
-    state.sort = sort;
-    writeJSON(LS_SORT, sort);
+    cfg(state.tab).st.sort = sort;
+    var key = state.tab === "events" ? LS_SORT : state.tab === "contests" ? LS_C_SORT : LS_B_SORT;
+    writeJSON(key, sort);
     render();
   }
   function setHideDone(on) {
-    state.hideDone = on;
-    if (on) state.enteredOnly = false;
-    writeJSON(LS_HIDE, on);
+    var st = cfg(state.tab).st;
+    st.hideDone = on;
+    if (on) {
+      if (state.tab === "events") st.enteredOnly = false;
+      else st.checkedOnly = false;
+    }
+    writeJSON(state.tab === "events" ? LS_HIDE : state.tab === "contests" ? LS_C_HIDE : LS_B_HIDE, on);
     render();
   }
   function setAnyOnly(on) {
-    state.anyOnly = on;
-    writeJSON(LS_ANY, on);
+    var st = cfg(state.tab).st;
+    st.anyOnly = on;
+    writeJSON(state.tab === "events" ? LS_ANY : state.tab === "contests" ? LS_C_ANY : LS_B_ANY, on);
     render();
   }
-  function setEnteredOnly(on) {
-    state.enteredOnly = on;
-    if (on && state.hideDone) {
-      state.hideDone = false;
-      writeJSON(LS_HIDE, false);
+  function setCheckedOnly(on) {
+    var st = cfg(state.tab).st;
+    if (state.tab === "events") {
+      st.enteredOnly = on;
+      if (on && st.hideDone) { st.hideDone = false; writeJSON(LS_HIDE, false); }
+    } else {
+      st.checkedOnly = on;
+      if (on && st.hideDone) { st.hideDone = false; writeJSON(state.tab === "contests" ? LS_C_HIDE : LS_B_HIDE, false); }
     }
+    render();
+  }
+  function setField(key) {
+    if (key !== "all" && !FIELD_LABEL[key]) key = "all";
+    state.contests.field = key;
+    writeJSON(LS_C_FIELD, key);
+    render();
+  }
+  function setBenefitCat(key) {
+    if (key !== "all" && !BCAT_LABEL[key]) key = "all";
+    state.benefits.cat = key;
+    writeJSON(LS_B_CAT, key);
+    render();
+  }
+
+  /* ---------- tabs ---------- */
+  function setTab(tab, push) {
+    if (!state.data[tab]) tab = "events";
+    state.tab = tab;
+    try { localStorage.setItem(LS_TAB, tab); } catch (e) {}
+    if (push !== false) {
+      try { history.replaceState(null, "", "#" + tab); } catch (e) {}
+    }
+    [].forEach.call(document.querySelectorAll(".tab"), function (b) {
+      b.setAttribute("aria-selected", String(b.dataset.tab === tab));
+      b.tabIndex = b.dataset.tab === tab ? 0 : -1;
+    });
+    document.getElementById("panel").setAttribute("aria-labelledby", "tab" + tab.charAt(0).toUpperCase() + tab.slice(1));
+    document.getElementById("prizeRow").hidden = tab !== "events";
+    document.getElementById("catRow").hidden = tab !== "events";
+    document.getElementById("contestRow").hidden = tab !== "contests";
+    document.getElementById("benefitRow").hidden = tab !== "benefits";
+    document.getElementById("q").placeholder = cfg(tab).search;
+    document.getElementById("q").value = state.q[tab];
+    document.getElementById("footNote").textContent = cfg(tab).note;
+    document.getElementById("list").setAttribute("aria-label", cfg(tab).live);
     render();
   }
 
@@ -986,28 +1295,41 @@
 
   function bind() {
     document.getElementById("q").addEventListener("input", function (e) {
-      state.q = e.target.value.trim();
+      state.q[state.tab] = e.target.value.trim();
       render();
+    });
+    [].forEach.call(document.querySelectorAll(".tab"), function (b) {
+      b.addEventListener("click", function () { setTab(b.dataset.tab); });
     });
     [].forEach.call(document.querySelectorAll("#catRow .chip[data-cat]"), function (b) {
       b.addEventListener("click", function () { setCat(b.dataset.cat); });
     });
-    [].forEach.call(document.querySelectorAll("#catRow .chip[data-sort]"), function (b) {
+    [].forEach.call(document.querySelectorAll("#contestRow .chip[data-field]"), function (b) {
+      b.addEventListener("click", function () { setField(b.dataset.field); });
+    });
+    [].forEach.call(document.querySelectorAll("#benefitRow .chip[data-bcat]"), function (b) {
+      b.addEventListener("click", function () { setBenefitCat(b.dataset.bcat); });
+    });
+    [].forEach.call(document.querySelectorAll(".sortrow .chip[data-sort]"), function (b) {
       b.addEventListener("click", function () { setSort(b.dataset.sort); });
     });
-    document.getElementById("hideDone").addEventListener("click", function () {
-      setHideDone(!state.hideDone);
-    });
-    document.getElementById("enteredOnly").addEventListener("click", function () {
-      setEnteredOnly(!state.enteredOnly);
-    });
-    document.getElementById("anyOnly").addEventListener("click", function () {
-      setAnyOnly(!state.anyOnly);
-    });
+    document.getElementById("hideDone").addEventListener("click", function () { setHideDone(!state.events.hideDone); });
+    document.getElementById("enteredOnly").addEventListener("click", function () { setCheckedOnly(!state.events.enteredOnly); });
+    document.getElementById("anyOnly").addEventListener("click", function () { setAnyOnly(!state.events.anyOnly); });
+    document.getElementById("contestsHideDone").addEventListener("click", function () { setHideDone(!state.contests.hideDone); });
+    document.getElementById("contestsChecked").addEventListener("click", function () { setCheckedOnly(!state.contests.checkedOnly); });
+    document.getElementById("contestsAnyOnly").addEventListener("click", function () { setAnyOnly(!state.contests.anyOnly); });
+    document.getElementById("benefitsHideDone").addEventListener("click", function () { setHideDone(!state.benefits.hideDone); });
+    document.getElementById("benefitsChecked").addEventListener("click", function () { setCheckedOnly(!state.benefits.checkedOnly); });
+    document.getElementById("benefitsAnyOnly").addEventListener("click", function () { setAnyOnly(!state.benefits.anyOnly); });
     document.getElementById("themeBtn").addEventListener("click", function () {
       var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(next);
       try { localStorage.setItem(LS_THEME, next); } catch (e) {}
+    });
+    window.addEventListener("hashchange", function () {
+      var h = (location.hash || "").replace("#", "");
+      if (state.data[h] && h !== state.tab) setTab(h, false);
     });
   }
 
@@ -1032,40 +1354,84 @@
     }
     return out;
   }
+  function loadChecks(key) {
+    var v = readJSON(key, {});
+    var out = {};
+    if (v && typeof v === "object" && !Array.isArray(v)) {
+      Object.keys(v).forEach(function (k) {
+        if (typeof v[k] === "string" && v[k]) out[k] = v[k];
+        else if (v[k]) out[k] = new Date().toISOString();
+      });
+    }
+    return out;
+  }
 
   function boot() {
     initTheme();
     state.entered = loadEntered();
-    state.cat = readJSON(LS_CAT, "all") || "all";
-    state.sort = readJSON(LS_SORT, "deadline") || "deadline";
-    state.hideDone = !!readJSON(LS_HIDE, false);
-    state.anyOnly = !!readJSON(LS_ANY, false);
+    state.checked.contests = loadChecks(LS_CONTEST_CHECKED);
+    state.checked.benefits = loadChecks(LS_BENEFIT_CHECKED);
+
+    state.events.cat = readJSON(LS_CAT, "all") || "all";
+    state.events.sort = readJSON(LS_SORT, "deadline") || "deadline";
+    state.events.hideDone = !!readJSON(LS_HIDE, false);
+    state.events.anyOnly = !!readJSON(LS_ANY, false);
     var savedPrize = readJSON(LS_PRIZE, "all");
-    state.prize = (savedPrize === "all" || PRIZE_ORDER.indexOf(savedPrize) !== -1) ? savedPrize : "all";
+    state.events.prize = (savedPrize === "all" || PRIZE_ORDER.indexOf(savedPrize) !== -1) ? savedPrize : "all";
+
+    var cf = readJSON(LS_C_FIELD, "all");
+    state.contests.field = FIELD_LABEL[cf] ? cf : "all";
+    state.contests.sort = readJSON(LS_C_SORT, "deadline") === "new" ? "new" : "deadline";
+    state.contests.anyOnly = !!readJSON(LS_C_ANY, false);
+    state.contests.hideDone = !!readJSON(LS_C_HIDE, false);
+    var bc = readJSON(LS_B_CAT, "all");
+    state.benefits.cat = BCAT_LABEL[bc] ? bc : "all";
+    state.benefits.sort = readJSON(LS_B_SORT, "deadline") === "new" ? "new" : "deadline";
+    state.benefits.anyOnly = !!readJSON(LS_B_ANY, false);
+    state.benefits.hideDone = !!readJSON(LS_B_HIDE, false);
 
     buildPrizeChips();
     bind();
-    syncChips();
 
-    var host = document.getElementById("list");
-    for (var i = 0; i < 4; i++) host.appendChild(el("div", "skeleton"));
+    var initial = "events";
+    var hash = (location.hash || "").replace("#", "");
+    if (["events", "contests", "benefits"].indexOf(hash) !== -1) initial = hash;
+    else {
+      var savedTab = null;
+      try { savedTab = localStorage.getItem(LS_TAB); } catch (e) {}
+      if (["events", "contests", "benefits"].indexOf(savedTab) !== -1) initial = savedTab;
+    }
+    state.tab = initial;
+    setTab(initial, false);
 
-    fetch("./data/events.json", { cache: "no-cache" })
-      .then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
-      .then(function (data) {
-        state.events = (data.events || []).slice();
-        state.loaded = true;
-        document.getElementById("updated").textContent = stampLabel(data.updated_label || "");
-        render();
-      })
-      .catch(function (err) {
-        host.textContent = "";
-        document.getElementById("error").hidden = false;
-        if (window.console) console.error("events.json load failed:", err);
-      });
+    var files = [
+      { kind: "events", url: "./data/events.json", key: "events" },
+      { kind: "contests", url: "./data/contests.json", key: "contests" },
+      { kind: "benefits", url: "./data/benefits.json", key: "benefits" }
+    ];
+    files.forEach(function (f) {
+      fetch(f.url, { cache: "no-cache" })
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          state.data[f.kind] = (data[f.key] || []).slice();
+          state.loaded[f.kind] = true;
+          state.updated[f.kind] = data.updated_label || "";
+          if (state.tab === f.kind) render();
+          else syncChips();
+        })
+        .catch(function (err) {
+          state.failed[f.kind] = true;
+          if (state.tab === f.kind) {
+            document.getElementById("list").textContent = "";
+            document.getElementById("error").hidden = false;
+            document.getElementById("empty").hidden = true;
+          }
+          if (window.console) console.error(f.url + " load failed:", err);
+        });
+    });
   }
 
   if (document.readyState === "loading") {
