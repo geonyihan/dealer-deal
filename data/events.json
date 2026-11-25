@@ -125,7 +125,7 @@
    "restriction_type": "target",
    "url": "https://www.welcometopranking.com/event/billiards/?p=eventinfo&enum=123",
    "image": "./images/welcometopranking-pba.png",
-   "icon": "./images/brands/welcometopranking.com.png",
+   "icon": null,
    "verified_at": "2026-11-25",
    "entry_easy": true
   },

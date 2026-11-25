@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>무료응모 헌터 · AI 콘테스트 · 지원금</title>
-<meta name="description" content="구매 없이 참여하는 무료응모, 접수 중인 AI 콘테스트·경진대회, 받을 수 있는 지원금·AI 혜택을 한곳에 모은 개인용 큐레이션">
+<title>무료응모 헌터 · AI 콘테스트 · 지원금 · 아이디어 공모전</title>
+<meta name="description" content="구매 없이 참여하는 무료응모, 접수 중인 AI 콘테스트·경진대회, 받을 수 있는 지원금·AI 혜택, 지금 접수 중인 아이디어·네이밍·정책 공모전을 한곳에 모은 개인용 큐레이션">
 <link rel="icon" href="./images/avatar.png">
 <style>
   :root {
@@ -131,11 +131,12 @@
     color: var(--dim);
     background: var(--bg);
   }
+  /* 탭이 4개가 되어 좁은 화면에서는 건수 배지를 감추고 라벨만으로 한 줄에 맞춘다 */
   @media (max-width: 430px) {
-    .tabs { margin-left: -7px; margin-right: -7px; }
-    .tab { font-size: 10.8px; padding: 7px 2px; gap: 3px; letter-spacing: -.045em; }
-    .tab .t-ico { font-size: 11.5px; }
-    .tab .t-c { font-size: 9px; min-width: 13px; padding: 0 3px; }
+    .tabs { margin-left: -7px; margin-right: -7px; gap: 2px; }
+    .tab { font-size: 10.2px; padding: 7px 0; gap: 1px; letter-spacing: -.055em; }
+    .tab .t-ico { font-size: 10.5px; }
+    .tab .t-c { display: none; }
   }
   .tab:hover { color: var(--ink); }
   .tab[aria-selected="true"] {
@@ -215,16 +216,17 @@
     font-size: 11px; font-weight: 700; letter-spacing: -.01em;
     color: var(--ok);
   }
-  #enteredOnly .pz-c, #contestsChecked .pz-c, #benefitsChecked .pz-c {
+  #enteredOnly .pz-c, #contestsChecked .pz-c, #benefitsChecked .pz-c, #ideasChecked .pz-c {
     font-size: 10px; font-weight: 700; line-height: 1.5;
     min-width: 16px; padding: 0 4px; border-radius: 999px; text-align: center;
     font-variant-numeric: tabular-nums; color: var(--dim); background: var(--chip);
   }
-  #enteredOnly[aria-pressed="true"], #contestsChecked[aria-pressed="true"], #benefitsChecked[aria-pressed="true"] {
+  #enteredOnly[aria-pressed="true"], #contestsChecked[aria-pressed="true"], #benefitsChecked[aria-pressed="true"],
+  #ideasChecked[aria-pressed="true"] {
     color: var(--ok); border-color: var(--ok); background: var(--ok-soft); font-weight: 700;
   }
   #enteredOnly[aria-pressed="true"] .pz-c, #contestsChecked[aria-pressed="true"] .pz-c,
-  #benefitsChecked[aria-pressed="true"] .pz-c { color: var(--bg); background: var(--ok); }
+  #benefitsChecked[aria-pressed="true"] .pz-c, #ideasChecked[aria-pressed="true"] .pz-c { color: var(--bg); background: var(--ok); }
   @media (max-width: 600px) {
     .prizerow, .chiprow {
       flex-wrap: nowrap;
@@ -510,7 +512,7 @@
       <img class="avatar" src="./images/avatar.png" alt="무료응모 헌터 캐릭터" width="46" height="46">
       <div class="brand-text">
         <h1>무료응모 헌터</h1>
-        <p class="tagline">무료응모 · AI 콘테스트 · 지원금 한곳에</p>
+        <p class="tagline">무료응모 · AI 콘테스트 · 지원금 · 공모전</p>
       </div>
       <button id="themeBtn" class="theme-btn" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -527,6 +529,9 @@
       </button>
       <button class="tab" type="button" role="tab" id="tabBenefits" data-tab="benefits" aria-selected="false" aria-controls="panel" title="지원금·AI혜택">
         <span class="t-ico" aria-hidden="true">💰</span><span class="t-label">지원금·AI혜택</span><span class="t-c" id="countBenefits">–</span>
+      </button>
+      <button class="tab" type="button" role="tab" id="tabIdeas" data-tab="ideas" aria-selected="false" aria-controls="panel" title="아이디어 공모전">
+        <span class="t-ico" aria-hidden="true">💡</span><span class="t-label">아이디어 공모전</span><span class="t-c" id="countIdeas">–</span>
       </button>
     </nav>
   </div>
@@ -592,6 +597,22 @@
         title="대상·소득 조건이 있는 혜택은 숨깁니다">누구나 가능</button>
     </div>
 
+    <!-- 아이디어 공모전 필터 -->
+    <div class="chiprow" id="ideaRow" role="group" aria-label="아이디어 공모전 분야·조건 필터" hidden>
+      <button class="chip" type="button" id="ideasChecked" aria-pressed="false"
+        title="내가 응모 완료로 체크한 공모전만 모아 봅니다">✅ 내가 응모한 것 <span class="pz-c" id="ideasCheckedCount">0</span></button>
+      <button class="chip" type="button" id="ideasHideDone" aria-pressed="false"
+        title="이미 응모한 공모전은 숨깁니다">미응모만</button>
+      <span class="sortsep" aria-hidden="true"></span>
+      <button class="chip" type="button" data-icat="all" aria-pressed="true">분야 전체</button>
+      <button class="chip" type="button" data-icat="plan" aria-pressed="false">🏛️ 기획·정책</button>
+      <button class="chip" type="button" data-icat="naming" aria-pressed="false">✏️ 네이밍·슬로건</button>
+      <button class="chip" type="button" data-icat="brand" aria-pressed="false">📣 브랜드·캠페인</button>
+      <button class="chip" type="button" data-icat="startup" aria-pressed="false">🚀 창업·비즈</button>
+      <button class="chip" type="button" id="ideasAnyOnly" aria-pressed="false"
+        title="참가 자격 제한이 있는 공모전은 숨깁니다">누구나 가능</button>
+    </div>
+
     <div class="sortrow">
       <span class="sortgroup">
         <span class="sortlabel" aria-hidden="true">정렬</span>
@@ -646,6 +667,11 @@
   var LS_B_SORT = "dealer_deal_benefit_sort_v1";
   var LS_B_ANY = "dealer_deal_benefit_any_v1";
   var LS_B_HIDE = "dealer_deal_benefit_hide_v1";
+  var LS_IDEA_CHECKED = "dealer_deal_ideas_checked_v1";
+  var LS_I_CAT = "dealer_deal_idea_cat_v1";
+  var LS_I_SORT = "dealer_deal_idea_sort_v1";
+  var LS_I_ANY = "dealer_deal_idea_any_v1";
+  var LS_I_HIDE = "dealer_deal_idea_hide_v1";
 
   /* 경품별 분류 ----------------------------------------------------------- */
   var PRIZE = [
@@ -707,19 +733,38 @@
     life: "life", transport: "life", living: "life", health: "life"
   };
 
+  /* 아이디어 공모전 분류 ------------------------------------------------- */
+  var ICATS = [
+    { key: "all", label: "분야 전체", icon: "" },
+    { key: "plan", label: "기획·정책", icon: "🏛️" },
+    { key: "naming", label: "네이밍·슬로건", icon: "✏️" },
+    { key: "brand", label: "브랜드·캠페인", icon: "📣" },
+    { key: "startup", label: "창업·비즈", icon: "🚀" }
+  ];
+  var ICAT_ORDER = ["plan", "naming", "brand", "startup"];
+  var ICAT_LABEL = { plan: "🏛️ 기획·정책", naming: "✏️ 네이밍·슬로건", brand: "📣 브랜드·캠페인", startup: "🚀 창업·비즈" };
+  var ICAT_PLAIN = { plan: "기획·정책", naming: "네이밍·슬로건", brand: "브랜드·캠페인", startup: "창업·비즈" };
+  var ICAT_ALIAS = {
+    plan: "plan", policy: "plan", planning: "plan", idea: "plan", service: "plan", public: "plan", proposal: "plan",
+    naming: "naming", name: "naming", slogan: "naming", brandname: "naming", "brand-name": "naming",
+    brand: "brand", marketing: "brand", campaign: "brand", pr: "brand",
+    startup: "startup", business: "startup", biz: "startup", venture: "startup"
+  };
+
   var state = {
     tab: "events",
-    q: { events: "", contests: "", benefits: "" },
-    data: { events: [], contests: [], benefits: [] },
-    loaded: { events: false, contests: false, benefits: false },
-    failed: { events: false, contests: false, benefits: false },
-    updated: { events: "", contests: "", benefits: "" },
+    q: { events: "", contests: "", benefits: "", ideas: "" },
+    data: { events: [], contests: [], benefits: [], ideas: [] },
+    loaded: { events: false, contests: false, benefits: false, ideas: false },
+    failed: { events: false, contests: false, benefits: false, ideas: false },
+    updated: { events: "", contests: "", benefits: "", ideas: "" },
     entered: {},
-    checked: { contests: {}, benefits: {} },
+    checked: { contests: {}, benefits: {}, ideas: {} },
     open: {},
     events: { cat: "all", prize: "all", sort: "deadline", hideDone: false, anyOnly: false, enteredOnly: false, easyOnly: false },
     contests: { field: "all", sort: "deadline", hideDone: false, anyOnly: false, checkedOnly: false },
-    benefits: { cat: "all", sort: "rec", hideDone: false, anyOnly: false, checkedOnly: false }
+    benefits: { cat: "all", sort: "rec", hideDone: false, anyOnly: false, checkedOnly: false },
+    ideas: { cat: "all", sort: "deadline", hideDone: false, anyOnly: false, checkedOnly: false }
   };
 
   function readJSON(key, fallback) {
@@ -822,6 +867,11 @@
     c = BCAT_ALIAS[c] || c;
     return BCAT_LABEL[c] ? c : "life";
   }
+  function icatOf(ev) {
+    var c = String(ev.category || ev.idea_category || "").toLowerCase().trim();
+    c = ICAT_ALIAS[c] || c;
+    return ICAT_LABEL[c] ? c : "plan";
+  }
 
   /* ---------- tab config ---------- */
   function cfg(kind) {
@@ -849,7 +899,15 @@
                 empty: "조건에 맞는 혜택이 없습니다. 검색어나 필터를 바꿔 보세요.",
                 search: "혜택·기관 검색 (월세, 크레딧, 검진)",
                 note: "모든 혜택은 공식 안내 페이지를 직접 열어 조건·금액을 확인한 것만 실었습니다. 개인별 적용 여부는 소득·재직·주택 상황에 따라 다르니 신청 전 공식 안내를 다시 확인하세요.",
-                countLabel: "확인 체크", checkWord: "확인", go: "신청·안내 페이지" }
+                countLabel: "확인 체크", checkWord: "확인", go: "신청·안내 페이지" },
+      ideas: { st: state.ideas, checked: state.checked.ideas, live: "접수 중인 아이디어 공모전", mine: "내가 응모한 공모전", cond: "공모 상세",
+                emptyMine: "아직 응모 완료로 체크한 아이디어 공모전이 없습니다. 카드 오른쪽 아래 ‘응모 체크’를 누르면 여기에 모입니다.",
+                emptyMineFiltered: "응모한 공모전 중에는 지금 조건에 맞는 항목이 없습니다. 검색어나 필터를 바꿔 보세요.",
+                emptyHide: "미응모 공모전이 없습니다. ‘미응모만’을 끄면 응모한 것까지 보입니다.",
+                empty: "조건에 맞는 공모전이 없습니다. 검색어나 필터를 바꿔 보세요.",
+                search: "공모전·주최·상금 검색 (네이밍, 정책, 창업)",
+                note: "모든 공모전은 주최 공식 페이지를 직접 열어 2026-11-25 기준 접수 중임을 확인한 것만 실었습니다. 개발·코딩·해커톤과 출품료가 있는 공모전은 넣지 않았습니다. 접수 전 마감 시각·자격·제출물은 공식 페이지에서 한 번 더 확인하세요.",
+                countLabel: "응모 체크", checkWord: "응모", go: "공식 페이지에서 접수" }
     }[kind];
   }
 
@@ -870,13 +928,16 @@
       if (state.events.easyOnly && !ev.entry_easy) return false;
     } else if (kind === "contests") {
       if (!(c.st.field === "all" || fieldOf(ev) === c.st.field)) return false;
+    } else if (kind === "ideas") {
+      if (!(c.st.cat === "all" || icatOf(ev) === c.st.cat)) return false;
     } else {
       if (!(c.st.cat === "all" || bcatOf(ev) === c.st.cat)) return false;
     }
     var q = state.q[kind];
     if (q) {
       var hay = [ev.brand, ev.title, ev.event_name, ev.channel, ev.value_note, ev.prize_note,
-        ev.summary, ev.conditions, ev.category, ev.field, ev.benefit_category, ev.restriction]
+        ev.summary, ev.conditions, ev.category, ev.field, ev.benefit_category, ev.restriction,
+        ICAT_PLAIN[ev.category] || "", ICAT_PLAIN[icatOf(ev)]]
         .join(" ").toLowerCase();
       var ok = q.toLowerCase().split(/\s+/).filter(Boolean).every(function (t) { return hay.indexOf(t) !== -1; });
       if (!ok) return false;
@@ -917,7 +978,7 @@
   /* 칩 개수: 마감 전 + 검색어 + 다른 필터 기준(자기 칩은 제외) */
   function chipCounts(kind) {
     var counts = { all: 0 };
-    var keys = kind === "events" ? PRIZE_ORDER : kind === "contests" ? ["music", "video", "art", "idea"] : ["ai", "subsidy", "tax", "life"];
+    var keys = kind === "events" ? PRIZE_ORDER : kind === "contests" ? ["music", "video", "art", "idea"] : kind === "ideas" ? ICAT_ORDER : ["ai", "subsidy", "tax", "life"];
     keys.forEach(function (k) { counts[k] = 0; });
     var c = cfg(kind);
     var saved = kind === "events" ? c.st.prize : kind === "contests" ? c.st.field : c.st.cat;
@@ -929,7 +990,7 @@
       state.q[kind] = savedQ;
       if (!matches(kind, ev)) return;
       counts.all++;
-      var k = kind === "events" ? prizeOf(ev) : kind === "contests" ? fieldOf(ev) : bcatOf(ev);
+      var k = kind === "events" ? prizeOf(ev) : kind === "contests" ? fieldOf(ev) : kind === "ideas" ? icatOf(ev) : bcatOf(ev);
       counts[k] = (counts[k] || 0) + 1;
     });
     if (kind === "events") c.st.prize = saved;
@@ -959,6 +1020,8 @@
       }
     } else if (kind === "contests") {
       parts = [FIELD_PLAIN[fieldOf(ev)], deadlineLabel(ev)];
+    } else if (kind === "ideas") {
+      parts = [ICAT_PLAIN[icatOf(ev)], deadlineLabel(ev)];
     } else {
       parts = [BCAT_PLAIN[bcatOf(ev)], deadlineLabel(ev)];
     }
@@ -993,6 +1056,7 @@
     if (kind === "events") art.setAttribute("data-prize", prizeOf(ev));
     if (kind === "contests") art.setAttribute("data-field", fieldOf(ev));
     if (kind === "benefits") art.setAttribute("data-bcat", bcatOf(ev));
+    if (kind === "ideas") art.setAttribute("data-icat", icatOf(ev));
 
     var top = el("div", "row-top");
     var text = el("div", "row-text");
@@ -1079,10 +1143,10 @@
     var doneBtn = el("button", "done-toggle");
     doneBtn.type = "button";
     doneBtn.setAttribute("aria-pressed", String(isDone));
-    var labelOff = kind === "events" ? "응모 체크" : kind === "contests" ? "지원 체크" : "확인 체크";
-    var labelOn = kind === "events" ? "응모 완료" : kind === "contests" ? "지원 완료" : "확인함";
-    var ariaOn = kind === "events" ? " 응모 완료 취소" : kind === "contests" ? " 지원 완료 취소" : " 확인 완료 취소";
-    var ariaOff = kind === "events" ? " 응모 완료로 체크" : kind === "contests" ? " 지원 완료로 체크" : " 확인 완료로 체크";
+    var labelOff = kind === "contests" ? "지원 체크" : kind === "benefits" ? "확인 체크" : "응모 체크";
+    var labelOn = kind === "contests" ? "지원 완료" : kind === "benefits" ? "확인함" : "응모 완료";
+    var ariaOn = kind === "contests" ? " 지원 완료 취소" : kind === "benefits" ? " 확인 완료 취소" : " 응모 완료 취소";
+    var ariaOff = kind === "contests" ? " 지원 완료로 체크" : kind === "benefits" ? " 확인 완료로 체크" : " 응모 완료로 체크";
     doneBtn.setAttribute("aria-label", ev.title + (isDone ? ariaOn : ariaOff));
     if (isDone) doneBtn.title = whenLabel(checkedIso, c.checkWord) + " · 누르면 취소";
     doneBtn.appendChild(el("span", "dot"));
@@ -1095,7 +1159,8 @@
       var store = kind === "events" ? state.entered : state.checked[kind];
       if (next) store[ev.id] = new Date().toISOString();
       else delete store[ev.id];
-      writeJSON(kind === "events" ? LS_ENTERED : kind === "contests" ? LS_CONTEST_CHECKED : LS_BENEFIT_CHECKED, store);
+      writeJSON(kind === "events" ? LS_ENTERED : kind === "contests" ? LS_CONTEST_CHECKED
+        : kind === "ideas" ? LS_IDEA_CHECKED : LS_BENEFIT_CHECKED, store);
       doneBtn.setAttribute("aria-pressed", String(next));
       doneBtn.setAttribute("aria-label", ev.title + (next ? ariaOn : ariaOff));
       doneBtn.querySelector(".dt-label").textContent = next ? labelOn : labelOff;
@@ -1207,6 +1272,9 @@
     [].forEach.call(document.querySelectorAll("#benefitRow .chip[data-bcat]"), function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.bcat === state.benefits.cat));
     });
+    [].forEach.call(document.querySelectorAll("#ideaRow .chip[data-icat]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.icat === state.ideas.cat));
+    });
     [].forEach.call(document.querySelectorAll(".sortrow .chip[data-sort]"), function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.sort === cfg(kind).st.sort));
     });
@@ -1220,6 +1288,9 @@
     document.getElementById("benefitsAnyOnly").setAttribute("aria-pressed", String(state.benefits.anyOnly));
     document.getElementById("benefitsChecked").setAttribute("aria-pressed", String(state.benefits.checkedOnly));
     document.getElementById("benefitsHideDone").setAttribute("aria-pressed", String(state.benefits.hideDone));
+    document.getElementById("ideasAnyOnly").setAttribute("aria-pressed", String(state.ideas.anyOnly));
+    document.getElementById("ideasChecked").setAttribute("aria-pressed", String(state.ideas.checkedOnly));
+    document.getElementById("ideasHideDone").setAttribute("aria-pressed", String(state.ideas.hideDone));
 
     document.getElementById("enteredCount").textContent = state.loaded.events ? String(checkedLiveCount("events")) : "–";
     var easyCountEl = document.getElementById("easyCount");
@@ -1235,10 +1306,12 @@
     }
     document.getElementById("contestsCheckedCount").textContent = state.loaded.contests ? String(checkedLiveCount("contests")) : "–";
     document.getElementById("benefitsCheckedCount").textContent = state.loaded.benefits ? String(checkedLiveCount("benefits")) : "–";
+    document.getElementById("ideasCheckedCount").textContent = state.loaded.ideas ? String(checkedLiveCount("ideas")) : "–";
 
     document.getElementById("countEvents").textContent = state.loaded.events ? String(liveEvents("events").length) : "–";
     document.getElementById("countContests").textContent = state.loaded.contests ? String(liveEvents("contests").length) : "–";
     document.getElementById("countBenefits").textContent = state.loaded.benefits ? String(liveEvents("benefits").length) : "–";
+    document.getElementById("countIdeas").textContent = state.loaded.ideas ? String(liveEvents("ideas").length) : "–";
 
     document.getElementById("countDone").textContent = state.loaded[kind] ? String(checkedLiveCount(kind)) : "0";
     document.getElementById("footCountLabel").textContent = cfg(kind).countLabel;
@@ -1258,7 +1331,8 @@
   }
   function setSort(sort) {
     cfg(state.tab).st.sort = sort;
-    var key = state.tab === "events" ? LS_SORT : state.tab === "contests" ? LS_C_SORT : LS_B_SORT;
+    var key = state.tab === "events" ? LS_SORT : state.tab === "contests" ? LS_C_SORT
+      : state.tab === "benefits" ? LS_B_SORT : LS_I_SORT;
     writeJSON(key, sort);
     render();
   }
@@ -1269,13 +1343,15 @@
       if (state.tab === "events") st.enteredOnly = false;
       else st.checkedOnly = false;
     }
-    writeJSON(state.tab === "events" ? LS_HIDE : state.tab === "contests" ? LS_C_HIDE : LS_B_HIDE, on);
+    writeJSON(state.tab === "events" ? LS_HIDE : state.tab === "contests" ? LS_C_HIDE
+      : state.tab === "benefits" ? LS_B_HIDE : LS_I_HIDE, on);
     render();
   }
   function setAnyOnly(on) {
     var st = cfg(state.tab).st;
     st.anyOnly = on;
-    writeJSON(state.tab === "events" ? LS_ANY : state.tab === "contests" ? LS_C_ANY : LS_B_ANY, on);
+    writeJSON(state.tab === "events" ? LS_ANY : state.tab === "contests" ? LS_C_ANY
+      : state.tab === "benefits" ? LS_B_ANY : LS_I_ANY, on);
     render();
   }
   function setEasyOnly(on) {
@@ -1290,7 +1366,8 @@
       if (on && st.hideDone) { st.hideDone = false; writeJSON(LS_HIDE, false); }
     } else {
       st.checkedOnly = on;
-      if (on && st.hideDone) { st.hideDone = false; writeJSON(state.tab === "contests" ? LS_C_HIDE : LS_B_HIDE, false); }
+      if (on && st.hideDone) { st.hideDone = false; writeJSON(state.tab === "contests" ? LS_C_HIDE
+        : state.tab === "benefits" ? LS_B_HIDE : LS_I_HIDE, false); }
     }
     render();
   }
@@ -1304,6 +1381,12 @@
     if (key !== "all" && !BCAT_LABEL[key]) key = "all";
     state.benefits.cat = key;
     writeJSON(LS_B_CAT, key);
+    render();
+  }
+  function setIdeaCat(key) {
+    if (key !== "all" && !ICAT_LABEL[key]) key = "all";
+    state.ideas.cat = key;
+    writeJSON(LS_I_CAT, key);
     render();
   }
 
@@ -1324,6 +1407,7 @@
     document.getElementById("catRow").hidden = tab !== "events";
     document.getElementById("contestRow").hidden = tab !== "contests";
     document.getElementById("benefitRow").hidden = tab !== "benefits";
+    document.getElementById("ideaRow").hidden = tab !== "ideas";
     [].forEach.call(document.querySelectorAll(".sortrow .chip[data-sort]"), function (b) {
       var s = b.dataset.sort;
       if (tab === "benefits") b.hidden = !(s === "rec" || s === "deadline");
@@ -1370,6 +1454,9 @@
     [].forEach.call(document.querySelectorAll("#benefitRow .chip[data-bcat]"), function (b) {
       b.addEventListener("click", function () { setBenefitCat(b.dataset.bcat); });
     });
+    [].forEach.call(document.querySelectorAll("#ideaRow .chip[data-icat]"), function (b) {
+      b.addEventListener("click", function () { setIdeaCat(b.dataset.icat); });
+    });
     [].forEach.call(document.querySelectorAll(".sortrow .chip[data-sort]"), function (b) {
       b.addEventListener("click", function () { setSort(b.dataset.sort); });
     });
@@ -1383,6 +1470,9 @@
     document.getElementById("benefitsHideDone").addEventListener("click", function () { setHideDone(!state.benefits.hideDone); });
     document.getElementById("benefitsChecked").addEventListener("click", function () { setCheckedOnly(!state.benefits.checkedOnly); });
     document.getElementById("benefitsAnyOnly").addEventListener("click", function () { setAnyOnly(!state.benefits.anyOnly); });
+    document.getElementById("ideasHideDone").addEventListener("click", function () { setHideDone(!state.ideas.hideDone); });
+    document.getElementById("ideasChecked").addEventListener("click", function () { setCheckedOnly(!state.ideas.checkedOnly); });
+    document.getElementById("ideasAnyOnly").addEventListener("click", function () { setAnyOnly(!state.ideas.anyOnly); });
     document.getElementById("themeBtn").addEventListener("click", function () {
       var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(next);
@@ -1432,6 +1522,7 @@
     state.entered = loadEntered();
     state.checked.contests = loadChecks(LS_CONTEST_CHECKED);
     state.checked.benefits = loadChecks(LS_BENEFIT_CHECKED);
+    state.checked.ideas = loadChecks(LS_IDEA_CHECKED);
 
     state.events.cat = readJSON(LS_CAT, "all") || "all";
     state.events.sort = readJSON(LS_SORT, "deadline") || "deadline";
@@ -1451,6 +1542,11 @@
     state.benefits.sort = bs === "deadline" ? "deadline" : "rec";
     state.benefits.anyOnly = !!readJSON(LS_B_ANY, false);
     state.benefits.hideDone = !!readJSON(LS_B_HIDE, false);
+    var ic = readJSON(LS_I_CAT, "all");
+    state.ideas.cat = ICAT_LABEL[ic] ? ic : "all";
+    state.ideas.sort = readJSON(LS_I_SORT, "deadline") === "new" ? "new" : "deadline";
+    state.ideas.anyOnly = !!readJSON(LS_I_ANY, false);
+    state.ideas.hideDone = !!readJSON(LS_I_HIDE, false);
     state.events.easyOnly = !!readJSON(LS_EASY, false);
 
     buildPrizeChips();
@@ -1458,11 +1554,11 @@
 
     var initial = "events";
     var hash = (location.hash || "").replace("#", "");
-    if (["events", "contests", "benefits"].indexOf(hash) !== -1) initial = hash;
+    if (["events", "contests", "benefits", "ideas"].indexOf(hash) !== -1) initial = hash;
     else {
       var savedTab = null;
       try { savedTab = localStorage.getItem(LS_TAB); } catch (e) {}
-      if (["events", "contests", "benefits"].indexOf(savedTab) !== -1) initial = savedTab;
+      if (["events", "contests", "benefits", "ideas"].indexOf(savedTab) !== -1) initial = savedTab;
     }
     state.tab = initial;
     setTab(initial, false);
@@ -1470,7 +1566,8 @@
     var files = [
       { kind: "events", url: "./data/events.json", key: "events" },
       { kind: "contests", url: "./data/contests.json", key: "contests" },
-      { kind: "benefits", url: "./data/benefits.json", key: "benefits" }
+      { kind: "benefits", url: "./data/benefits.json", key: "benefits" },
+      { kind: "ideas", url: "./data/ideas.json", key: "ideas" }
     ];
     files.forEach(function (f) {
       fetch(f.url, { cache: "no-cache" })
