@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-27T07:00:00+09:00",
- "updated_label": "2026-11-27",
- "note": "청년·직장인·주거·교통·세금 지원금과 AI 무료 크레딧·무료 이용권을 함께 모았습니다. 모든 항목은 공식 페이지에서 조건을 확인했고 개인정보는 넣지 않았습니다. 마감이 지난 항목은 없었고, JetBrains Junie Lite 무료(12/31까지) 1건을 새로 추가했습니다.",
+ "updated": "2026-11-28T07:00:00+09:00",
+ "updated_label": "2026-11-28",
+ "note": "청년·직장인·주거·교통·세금 지원금과 AI 무료 크레딧·무료 이용권을 함께 모았습니다. 모든 항목은 공식 페이지에서 조건을 확인했고 개인정보는 넣지 않았습니다. 마감이 지난 항목은 없었고, Inception Mercury 2 새 API 키 1억 토큰 무료와 KRAFTON Raon-1 mini API 한시적 무료 2건을 새로 추가했습니다.",
  "benefits": [
   {
    "id": "junie-lite-free",
@@ -504,6 +504,40 @@
    "url": "https://adot.ai",
    "image": "./images/benefit-adot-free.png",
    "verified_at": "2026-11-24"
+  },
+  {
+   "id": "inception-mercury-free",
+   "brand": "Inception Labs",
+   "channel": "공식 블로그·API",
+   "title": "1억 토큰 무료 · Mercury 2 API",
+   "benefit_category": "ai",
+   "deadline": "상시",
+   "start": "2026-11-24",
+   "credit": true,
+   "summary": "Inception API 키를 새로 만들면 Mercury 2 모델용 토큰 1억 개가 무료로 붙어요(기존 1,000만). 무료 티어 속도 한도도 10배로 올라가서 프로덕션 수준 트래픽을 카드 없이 시험해 볼 수 있습니다.",
+   "conditions": "서비스 Inception API(Mercury 2) / 제공 Inception Labs / 무료 범위 새 계정·새 API 키마다 1회 1억 토큰(모든 모델 공용, 모델별 지급 아님), 무료 티어 요청 한도 10배 상향 / 토큰 소진 후 결제 정보 등록 시 계속 사용 / 카드 등록·만료일은 공식 페이지에 명시되지 않음 / OpenAI 호환 API, Mercury는 diffusion 기반 LLM / 발급 inceptionlabs.ai 콘솔",
+   "restriction": "누구나 (새 API 키 발급)",
+   "restriction_type": null,
+   "url": "https://www.inceptionlabs.ai/blog/mercury-2-10x-free-tokens",
+   "image": "./images/benefit-inception-mercury.png",
+   "verified_at": "2026-11-28"
+  },
+  {
+   "id": "raon-mini-api-free",
+   "brand": "KRAFTON",
+   "channel": "라온 콘솔",
+   "title": "한시적 무료 API · Raon-1 mini",
+   "benefit_category": "ai",
+   "deadline": "상시",
+   "start": "2026-10-28",
+   "credit": true,
+   "summary": "크래프톤이 만든 한국어 특화 30B-A4B 모델 Raon-1 mini를 API로 무료 호출할 수 있어요. 만 14세 이상이면 이름·이메일·소속·사용 목적을 적어 초대를 받고 콘솔에서 키를 발급받으면 되고, 모델 가중치는 Hugging Face에 Apache 2.0으로 공개돼 있습니다.",
+   "conditions": "서비스 Raon-1 mini API / 제공 KRAFTON / 무료 범위 모델 공개 기념 한시적 무료(종료일 미공개), 사용자별 토큰·요청 한도 적용 가능 / 컨텍스트 262,144 토큰 / 대상 만 14세 이상, 신청서에 이름·이메일·소속·역할·사용 목적 제출 → 초대 메일로 콘솔 가입 → API 키 발급 / 로그인 없이 웹 체험 가능, 플레이그라운드 제공 / 향후 유료화 정책은 별도 공지",
+   "restriction": "만 14세 이상 (초대 신청 후 콘솔 키 발급)",
+   "restriction_type": "age",
+   "url": "https://raon.krafton.ai/ko",
+   "image": "./images/benefit-raon-mini-api.png",
+   "verified_at": "2026-11-28"
   }
  ]
 }

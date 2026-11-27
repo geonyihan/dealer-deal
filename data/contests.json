@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-27T07:00:00+09:00",
- "updated_label": "2026-11-27",
- "note": "2026-11-27 기준 접수 중이거나 곧 열리는 AI 창작 공모전만 수록했습니다. 개발·코딩 경진대회는 넣지 않고 음악·영상·그림(디자인)·아이디어 네 축으로만 정리했어요. 모든 항목은 주최 공식 페이지를 직접 열어 접수 기간·상금·참가 자격을 확인했고, 마감이 지난 대회·초대 전용 비공개 대회·출품료가 큰 대회는 뺐습니다. 이번 회차에 마감이 지난 대회는 없었고, 종근당 깨노니 CM송 가요제(총 1,260만원)·서울공자아카데미 'AI가 상상하는 중국' AI 영상 공모전(상품권 110만원) 2건을 추가했습니다.",
+ "updated": "2026-11-28T07:00:00+09:00",
+ "updated_label": "2026-11-28",
+ "note": "2026-11-28 기준 접수 중이거나 곧 열리는 AI 창작 공모전만 수록했습니다. 개발·코딩 경진대회는 넣지 않고 음악·영상·그림(디자인)·아이디어 네 축으로만 정리했어요. 모든 항목은 주최 공식 페이지를 직접 열어 접수 기간·상금·참가 자격을 확인했고, 마감이 지난 대회·초대 전용 비공개 대회·출품료가 큰 대회는 뺐습니다. 이번 회차에 마감이 지난 서울 숏폼(총 1,000만원)·잠실 미디어아트(1,160만원) 2건을 정리하고, 12월 7일 접수가 열리는 뉴테이크 AI 영상 공모전(총 5,024만원 상당·대상 현금 1,000만원)과 글로벌 Chroma Awards 시즌 2($45만 이상)를 추가했습니다.",
  "contests": [
   {
    "id": "kkenoni-cm-song",
@@ -40,25 +40,6 @@
    "url": "https://contest.486studio.com/contests/2026/%EC%A0%9C1%ED%9A%8C-ai-%EC%98%81%EC%83%81-%EA%B3%B5%EB%AA%A8%EC%A0%84-ai%EA%B0%80-%EC%83%81%EC%83%81%ED%95%98%EB%8A%94-%EC%A4%91%EA%B5%AD",
    "image": "./images/contest-china-ai-video.jpg",
    "verified_at": "2026-11-27"
-  },
-  {
-   "id": "seoul-intro-shortform",
-   "brand": "서울특별시",
-   "channel": "구글폼 접수",
-   "title": "총상금 1,000만원 · 내가 소개하는 서울 숏폼",
-   "event_name": "2026 내가 소개하는 서울 숏폼 공모전",
-   "prize_note": "총 1,000만원 (대상 300만·최우수 2명 각 150만·우수 8명 각 50만, 총 11명/팀)",
-   "field": "video",
-   "global": false,
-   "deadline": "2026-11-27",
-   "start": "2026-11-09",
-   "summary": "외국인·타지역 친구에게 자랑하고 싶은 서울 정책을 60초 숏폼으로. AI 활용 가능하고 구글폼에 영상·대본만 올리면 됩니다.",
-   "conditions": "공모명: 2026 내가 소개하는 서울 숏폼 공모전 / 주최 서울특별시 홍보담당관 / 접수 2026.11.9~11.27 17:00, 구글폼 온라인 접수(신청서·작품파일·청렴서약서·대본) / 자격 국내 거주 내외국인 누구나 / 주제 외국인·국내 타지역 친구에게 소개하고 싶은 서울 정책 / 규격 60초 이내 숏폼 MP4, 가로 1920×1080 또는 세로 1080×1920 이상, AI 활용 가능 / 시상 대상 300만·최우수 2명 각 150만·우수 8명 각 50만 / 발표 12.14 예정, 결과발표 후 10일 온라인 공개검증",
-   "restriction": "국내 거주 내외국인 누구나",
-   "restriction_type": null,
-   "url": "https://mediahub.seoul.go.kr/gongmo/2000791",
-   "image": "./images/contest-seoul-shortform.jpg",
-   "verified_at": "2026-11-26"
   },
   {
    "id": "seoul-future-character",
@@ -205,24 +186,6 @@
    "url": "https://nextsoundawards.com/competition-rules",
    "image": "./images/contest-nextsound-awards.jpg",
    "global": true,
-   "verified_at": "2026-11-24"
-  },
-  {
-   "id": "jamsil-media-art",
-   "brand": "서울시설공단",
-   "channel": "공식 홈페이지",
-   "title": "총상금 1,160만원 · 잠실 미디어아트",
-   "event_name": "제2회 잠실 미디어아트 공모전",
-   "prize_note": "총 13명 선정, 총상금 1,160만원",
-   "field": "video",
-   "deadline": "2026-11-27",
-   "start": "2026-10-26",
-   "summary": "잠실 지하도상가의 역사·문화·공간을 생성형 AI 미디어아트 영상으로 표현하는 공모전. 11/27까지 네이버폼으로 접수하고, 수상작은 잠실 LED 전광판에 전시됩니다.",
-   "conditions": "공모전명: 제2회 잠실 미디어아트 공모전 '역사와 문화로 다시 보는 잠실' / 주최 서울시설공단 / 접수 2026.10.26~11.27, 네이버폼 / 부문: 일반부(시민·창작자 누구나), 대학생부(전문대·대학 재학생) / 주제: 잠실의 역사·문화·공간 또는 잠실역·지하도상가의 변화를 표현한 미디어아트 / 시상: 총 13명, 총상금 1,160만원 / 심사 발표 12.4 / 문의 070-5080-1645",
-   "restriction": "일반부는 누구나 · 대학생부는 재학생",
-   "restriction_type": "target",
-   "url": "https://www.sisul.or.kr/open_content/undershop/bbs/bbsMsgDetail.do?bcd=notice&msg_seq=8935",
-   "image": "./images/contest-jamsil-media-art.jpg",
    "verified_at": "2026-11-24"
   },
   {
@@ -498,6 +461,44 @@
    "url": "https://prompt2026.sto.or.kr",
    "image": "./images/contest-seoul-prompt-thon.jpg",
    "verified_at": "2026-11-24"
+  },
+  {
+   "id": "newtake-ai-video",
+   "brand": "뉴테이크·스튜디오프리윌루전",
+   "channel": "AI-Kive 공모전 페이지",
+   "title": "총 5,024만원 상당 · 뉴테이크 AI 영상 공모전",
+   "event_name": "뉴테이크 AI 영상 공모전 — NEW TAKE ON AI",
+   "prize_note": "종합 대상 1팀 현금 1,000만원+크레딧 1,000만원 상당 · AI 스토리텔링 최우수 2팀 각 250만원+Max 플랜 6개월 · AI 광고 최우수 2팀 각 150만원+Max 플랜 6개월 · 우수상 4팀 각 100만원+Max 플랜 3개월 · Newtake Pick 16팀 Max 플랜 1개월 (현금 2,200만원 + 크레딧·플랜 2,824만원 상당)",
+   "field": "video",
+   "global": false,
+   "deadline": "2027-01-05",
+   "start": "2026-12-07",
+   "summary": "AI로 만든 단편영화·숏드라마와 뉴테이크를 알리는 AI 광고를 모으는 공모전. 가로·세로 4개 하위 부문에 부문별 1편씩 최대 4편을 낼 수 있고, 종합 대상은 현금 1,000만원에 크레딧 1,000만원 상당까지 줘요.",
+   "conditions": "공모명 뉴테이크 AI 영상 공모전 NEW TAKE ON AI / 주최 뉴테이크·㈜스튜디오프리윌루전(AI-Kive) / 접수 2026.12.7 10:00~2027.1.5 23:59 / 자격 만 14세 이상 개인 또는 팀, AI-Kive 첫 업로드 시 PASS 본인인증 / 부문 AI 스토리텔링(단편영화·드라마 가로, 숏드라마 세로), AI 광고(브랜드 필름 가로, 숏폼 광고 세로) / 출품 하위 부문별 1편·전체 최대 4편, MP4 FHD 이상 2GB 이내, 생성형 AI 필수·사용 도구 기재, 초반 또는 후반에 '이 영상은 생성형 AI 기반으로 만들어졌습니다' 표기 / 심사 2027.1.6~20 / 발표 2027.1.22 18:00 / 참가비 없음",
+   "restriction": "만 14세 이상 누구나 (개인·팀)",
+   "restriction_type": "age",
+   "url": "https://aikive.com/event/801d4e8cf26949ddba0ed968517f1e05",
+   "image": "./images/contest-newtake-ai-video.jpg",
+   "verified_at": "2026-11-28"
+  },
+  {
+   "id": "chroma-awards-s2",
+   "brand": "ElevenLabs",
+   "channel": "공식 대회 페이지",
+   "title": "$450K+ · Chroma Awards 시즌 2",
+   "event_name": "Chroma Awards Season 2",
+   "prize_note": "총 $45만 이상 상금·여행 혜택, 부문별 시상(영화·뮤직비디오·광고·게임·비하인드 더 신) · ElevenLabs 어워드 별도 $22,000(22명) · 수상자 유급 인턴십 기회",
+   "field": "video",
+   "global": true,
+   "deadline": "2027-01-07",
+   "start": "2026-10-19",
+   "summary": "ElevenLabs가 여는 글로벌 AI 창작 경연. 영화·뮤직비디오·광고·게임·비하인드 더 신 5개 부문에 2026년 2월 1일 이후 만든 작품을 출품할 수 있고, 출품 수 제한이 없어요.",
+   "conditions": "공모명 Chroma Awards Season 2 / 주최 ElevenLabs / 접수 2026.10.19~2027.1.7 23:45(PT) / 부문 영화, 뮤직비디오, 광고, 게임, 비하인드 더 신, 학생 어워드 / 자격 누구나(국적 제한 없음), 2026.2.1 이후 제작 작품 / 출품 수 제한 없음, 단 한 작품은 한 카테고리에만 출품 / 상금 총 $45만 이상 + 부문별 상, ElevenLabs 활용작은 별도 어워드 자동 후보 / 시상식 2027.2.11 라이브스트림 / 공식 사이트 chromawards.com에서 접수",
+   "restriction": "누구나 (해외 참가 가능, 2026.2.1 이후 제작작)",
+   "restriction_type": null,
+   "url": "https://elevenlabs.io/ko/blog/chroma-awards-season-two-announcement",
+   "image": "./images/contest-chroma-awards.jpg",
+   "verified_at": "2026-11-28"
   }
  ]
 }

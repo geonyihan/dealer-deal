@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-27T07:00:00+09:00",
- "updated_label": "2026-11-27",
- "note": "AI 여부와 무관하게 기획·정책제안·네이밍·슬로건·창업 아이디어 공모전을 모았습니다. 개발·코딩·해커톤은 뺐고, 모든 항목은 주최 공식 공고를 열어 마감·상금·참여 대상을 확인했습니다. 이번 회차에 마감이 지난 항목은 없었고, 식품진흥원 영문 명칭 대국민 공모전(커피 기프티콘 110명) 1건을 추가했습니다.",
+ "updated": "2026-11-28T07:00:00+09:00",
+ "updated_label": "2026-11-28",
+ "note": "AI 여부와 무관하게 기획·정책제안·네이밍·슬로건·창업 아이디어 공모전을 모았습니다. 개발·코딩·해커톤은 뺐고, 모든 항목은 주최 공식 공고를 열어 마감·상금·참여 대상을 확인했습니다. 이번 회차에 마감이 지난 재정교육 아이디어(240만원)·K-Petro 혁신 아이디어(60만원) 2건을 정리하고, KOTRA Post 수출 1조 달러 청년 아이디어 공모전(총 300만원)과 국민체육진흥공단 경륜·경정 건전화 공모전 슬로건·포스터 부문(총 930만원)을 추가했습니다.",
  "ideas": [
   {
    "id": "foodpolis-english-name",
@@ -112,24 +112,6 @@
    "verified_at": "2026-11-25"
   },
   {
-   "id": "mpb-finance-edu",
-   "brand": "기획예산처",
-   "channel": "부처 공지·구글폼",
-   "title": "240만원 · 재정교육 아이디어",
-   "event_name": "2026년 대국민 재정교육 아이디어 공모전",
-   "prize_note": "총 240만원 (대상 100만 · 최우수 50만 · 우수 2편 각 30만 · 장려 10편 각 3만원 기프티콘)",
-   "category": "plan",
-   "deadline": "2026-11-27",
-   "start": "2026-10-30",
-   "summary": "나라살림을 쉽고 재미있게 배우는 교육 콘텐츠·프로그램 아이디어를 제안서로 내는 공모. 11/27 18시까지 구글폼으로 접수하고, 개인 또는 4인 이내 팀으로 1인 1건까지 낼 수 있습니다.",
-   "conditions": "공모전명: 2026년 대국민 재정교육 아이디어 공모전 (주제: 국민 눈높이에서 알기 쉬운 재정교육) / 주최 기획예산처, 주관 한국능률협회컨설팅 / 접수 2026.10.30 ~ 11.27 18:00, 구글폼(buly.kr/2qbUIR9) 제출 / 참가 대한민국 국민 누구나, 개인 또는 4인 이내 팀, 1인당 최대 1건 / 분야 나라살림 기초 콘텐츠, 생활 속 사례형 교육, 참여·체험형 프로그램, 게임·교구 등 학습 도구 / 제출 제안서(HWP 또는 PDF, A4 3쪽 이내) / 선정작은 일반국민 대상 교육 콘텐츠로 제작·활용 / 문의 02-3786-0415, financeedu@kmac.co.kr",
-   "restriction": "대한민국 국민 누구나",
-   "restriction_type": null,
-   "url": "https://www.mpb.go.kr/web/main/bbs/b_0001/3125",
-   "image": "./images/idea-mpb-finance-edu.jpg",
-   "verified_at": "2026-11-25"
-  },
-  {
    "id": "smartcity-ai-idea",
    "brand": "국토교통부·스마트도시협회",
    "channel": "공모전 홈페이지",
@@ -181,24 +163,6 @@
    "restriction_type": "target",
    "url": "https://www.eeas.europa.eu/delegations/south-korea/gongmo-2026-syuman-chaellinji-eu-han-pateuneosib-ganghwaleul-wihan-jeongchaeg-aidieo-gongmojeon_ko",
    "image": "./images/idea-schuman-challenge.jpg",
-   "verified_at": "2026-11-25"
-  },
-  {
-   "id": "kpetro-idea",
-   "brand": "한국석유관리원",
-   "channel": "공지·이메일 접수",
-   "title": "60만원 · K-Petro 혁신 아이디어",
-   "event_name": "2026년 K-Petro 대국민 혁신 아이디어 공모전",
-   "prize_note": "총 60만원 (최우수 30만 · 우수 20만 · 장려 10만, 각 1명)",
-   "category": "plan",
-   "deadline": "2026-11-27",
-   "start": "2026-11-09",
-   "summary": "공공서비스·민원, 친환경·탄소중립, AI·데이터 세 분야에서 기관 혁신 아이디어를 받는 공모. 신청서를 내려받아 11/27 24시까지 이메일로 보내면 되고, 나이·전공·소속 제한이 없습니다.",
-   "conditions": "공모전명: 2026년 K-Petro 대국민 혁신 아이디어 공모전 / 주최 한국석유관리원 / 접수 2026.11.9 ~ 11.27 24:00, 신청서 작성 후 sv@kpetro.or.kr 이메일 접수 / 참가 한국석유관리원에 관심 있는 대한민국 국민 누구나(연령·전공·소속 제한 없음) / 주제 ①공공기관 소통 혁신(공공서비스·민원처리) ②친환경·탄소중립 혁신(재생에너지·ESG) ③AI·데이터 혁신(대국민 서비스) / 결과발표 12월 중 개별통보 및 홈페이지 공고 / 포상금 지급 시 제세공과금 제외 / 문의 031-789-0256",
-   "restriction": "대한민국 국민 누구나",
-   "restriction_type": null,
-   "url": "https://www.kpetro.or.kr/lay1/bbs/S1T52C254/A/1/view.do?article_seq=14904&cpage=1&rows=10",
-   "image": "./images/idea-kpetro-idea.jpg",
    "verified_at": "2026-11-25"
   },
   {
@@ -362,6 +326,42 @@
    "url": "https://sangji-ai-startup-2026.workspace-700806.chatgpt.site/",
    "image": "./images/idea-sangji-ai-startup.jpg",
    "verified_at": "2026-11-25"
+  },
+  {
+   "id": "kotra-export-trillion-idea",
+   "brand": "KOTRA 대한무역투자진흥공사",
+   "channel": "무역투자24 접수·이메일 제출",
+   "title": "총 300만원 · 수출 1조 달러 아이디어",
+   "event_name": "Post 수출 1조 달러 청년 아이디어 공모전",
+   "prize_note": "대상 100만원 1팀 · 최우수상 50만원 2팀 · 우수상 30만원 2팀 · 장려상 20만원 2팀 · 참가상 3만5천원 상당 상품(기준 충족 시)",
+   "category": "plan",
+   "deadline": "2026-12-13",
+   "start": "2026-11-24",
+   "summary": "연 수출 1조 달러를 넘어선 한국 수출의 다음 방향을 청년이 제안하는 공모전. A4 10장 이내 제안서를 무역투자24 양식으로 작성해 이메일로 내면 되고, 7팀을 뽑아 12월 22일 본사에서 PT까지 해요.",
+   "conditions": "공모명 Post 수출 1조 달러 아이디어 공모전 / 주최 KOTRA 무역투자연구센터 / 접수 2026.11.24~12.13(신청 11.17부터) / 자격 만 19~34세 청년, 개인 또는 3인 이내 팀, 1인(팀)당 최대 2건 / 주제 수출 1조 달러 이후 시장·품목·방식 변화, 수출 기반 일자리 창출 등 수출 미래 전략 / 제출 무역투자24에서 지정 양식 내려받아 A4 10페이지 이내 작성 후 rc_hq@kotra.or.kr 송부 / 1차 발표 12.18(7팀), 최종 PT 12.22 코트라 본사 / 문의 02-3460-7594",
+   "restriction": "만 19~34세 청년 (개인·3인 이내 팀)",
+   "restriction_type": "age",
+   "url": "https://www.kotra.or.kr/subList/20000020753/subhome/bizAply/selectBizMntInfoDetail.do?&dtlBizMntNo=26ED01G&cpbizYn=N",
+   "image": "./images/idea-kotra-export-idea.jpg",
+   "verified_at": "2026-11-28"
+  },
+  {
+   "id": "kcycle-soundness-contest",
+   "brand": "국민체육진흥공단",
+   "channel": "공모전 전용 홈페이지",
+   "title": "총 930만원 · 경륜·경정 건전화 슬로건·포스터",
+   "event_name": "2026년 대국민 경륜·경정 건전화 공모전",
+   "prize_note": "숏폼 금상 150만원 · 은상 80만원 · 동상 각 50만원 / 포스터 금상 70만원 · 은상 40만원 · 동상 각 20만원 / 슬로건 최우수 30만원 · 우수 각 20만원 / 참가상 네이버페이 3만원 30명 (총 930만원·19건)",
+   "category": "naming",
+   "deadline": "2026-12-06",
+   "start": "2026-11-16",
+   "summary": "건전한 경륜·경정 이용문화를 알리는 숏폼·포스터와 '희망길벗' 슬로건을 함께 모으는 공모전. 생성형 AI로 만들어도 되고, 슬로건은 20자 한 줄이라 부담 없이 낼 수 있어요.",
+   "conditions": "공모명 2026년 대국민 경륜·경정 건전화 공모전 / 주최 국민체육진흥공단 / 접수 2026.11.16~12.6 / 부문 일반부 숏폼(30초~1분, 세로 9:16)·포스터(A3)·슬로건(띄어쓰기 제외 20자 내외), 중·고등부 숏폼·포스터 / 자격 일반부 누구나, 개인 또는 3인 이내 팀, 분야별 1인(팀) 2점까지 / 주제 건전 이용문화 확산, 구매상한 준수, 과몰입 예방, 불법도박 근절 / 생성형 AI 활용 가능 / 발표 2026.12.18 / 접수 kracecontest.co.kr",
+   "restriction": "일반부 누구나 (개인·3인 이내 팀)",
+   "restriction_type": null,
+   "url": "https://kracecontest.co.kr/",
+   "image": "./images/idea-kcycle-contest.jpg",
+   "verified_at": "2026-11-28"
   }
  ]
 }
